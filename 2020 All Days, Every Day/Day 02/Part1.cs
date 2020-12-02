@@ -41,15 +41,6 @@ namespace Day_02
             return false;
         }
 
-        private int LetterCount(string Letter, string Input)
-        {
-            int starLength = Input.Length;
-            Input = Input.Replace(Letter, "");
-            int finalLength = Input.Length;
-
-            return starLength - finalLength;
-        }
-
         private Dictionary<PasswordPolicyRequirement, string> ParseInput(string[] input)
         {
             var passwordData = new Dictionary<PasswordPolicyRequirement, string>();
