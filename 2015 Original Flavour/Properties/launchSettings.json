@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "2015 Original Flavour": {
+      "commandName": "Project"
+    },
+    "(All) 2015 Original Flavour": {
+      "commandName": "Project",
+      "commandLineArgs": "All"
+    }
+  }
+}

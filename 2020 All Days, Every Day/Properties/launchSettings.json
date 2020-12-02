@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "2020 All Days, Every Day": {
+      "commandName": "Project"
+    },
+    "(All) 2020 All Days, Every Day": {
+      "commandName": "Project",
+      "commandLineArgs": "All"
+    }
+  }
+}
