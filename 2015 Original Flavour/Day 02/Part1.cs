@@ -11,7 +11,7 @@ namespace Day_02
     internal class Part1 : IAdventProblem
     {
         private string Dayname => Helpers.GetDayFromNamespace(this);
-        public string ProblemName { get => $"Day {Dayname}: I Was Told There Would Be No Math Part One."; }
+        public string ProblemName { get => $"Day {Dayname}: I Was Told There Would Be No Math. Part One."; }
 
         public void Run()
         {

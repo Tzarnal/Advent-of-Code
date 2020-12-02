@@ -14,9 +14,21 @@ namespace Day_00
 
         public void Run()
         {
-            var inputList = Helpers.ReadStringsFile($"Day {Dayname}/input.txt");
+            var inputList = ParseInput($"Day {Dayname}/input.txt");
+            var testinputList = ParseInput($"Day {Dayname}/input.txt");
 
+            Solve(testinputList);
+            Solve(inputList);
+        }
+
+        public void Solve(List<string> input)
+        {
             Log.Information("A Solution Can Be Found.");
+        }
+
+        private List<string> ParseInput(string filePath)
+        {
+            return Helpers.ReadStringsFile(filePath);
         }
     }
 }

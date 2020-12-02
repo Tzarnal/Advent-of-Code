@@ -34,7 +34,7 @@ namespace Day_02
                 runningTotal += ribbonLegth + bowRibbonLegth;
             }
 
-            Log.Information("The total required wrapping paper for {totalBoxes} boxes is {runningTotal}", totalBoxes, runningTotal);
+            Log.Information("The total required ribbon for {totalBoxes} boxes is {runningTotal}", totalBoxes, runningTotal);
         }
 
         private List<Vector3> ParseInput(List<string> inputList)
