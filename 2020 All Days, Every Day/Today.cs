@@ -1,30 +1,27 @@
-﻿using BenchmarkDotNet.Attributes;
+﻿using BenchmarkDotNet.Configs;
+using BenchmarkDotNet.Running;
 
 namespace Advent
 {
-    [MemoryDiagnoser]
     public class Today
     {
         public IAdventProblem ProblemPart1;
         public IAdventProblem ProblemPart2;
 
+        private IAdventBenchmark AdventDay;
+
         public Today()
         {
             //What problem are we solving today
-            ProblemPart1 = new Day_02.Part1();
-            ProblemPart2 = new Day_02.Part2();
+            AdventDay = new Day_01.AdventDay();
+
+            ProblemPart1 = AdventDay.ProblemPart1;
+            ProblemPart2 = AdventDay.ProblemPart2;
         }
 
-        [Benchmark]
-        public void PartOne()
+        public void RunTodaysBenchmarks(ManualConfig config)
         {
-            ProblemPart1.Run();
-        }
-
-        [Benchmark]
-        public void PartTwo()
-        {
-            ProblemPart2.Run();
+            BenchmarkRunner.Run(AdventDay.GetType(), config);
         }
     }
 }

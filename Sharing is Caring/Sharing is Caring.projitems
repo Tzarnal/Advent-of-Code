@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Extensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IAdventBenchmark.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IAdventProblem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SolutionTemplate.cs" />
   </ItemGroup>

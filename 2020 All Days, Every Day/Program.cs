@@ -1,10 +1,9 @@
 using Serilog;
-using BenchmarkDotNet.Running;
-using BenchmarkDotNet.Configs;
-using System.Linq;
-using BenchmarkDotNet.Loggers;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
+using BenchmarkDotNet.Loggers;
+using BenchmarkDotNet.Configs;
 
 namespace Advent
 {
@@ -30,14 +29,14 @@ namespace Advent
 
             //Exit program now if this is a Debug build. If not continue and do a benchmark
 #if RELEASE
-            Benchmark();
+            Benchmark(today);
             Log.Logger = debugLogger;
             Log.Verbose("Benchmarks finished");
             BenchMarkReport();
 #endif
         }
 
-        public static void Benchmark()
+        public static void Benchmark(Today today)
         {
             Log.Verbose("Running in Release build. Starting benchmarks.");
 
@@ -61,7 +60,7 @@ namespace Advent
 
             config.UnionRule = ConfigUnionRule.AlwaysUseGlobal; // Overriding the default
 
-            BenchmarkRunner.Run<Today>(config);
+            today.RunTodaysBenchmarks(config);
         }
 
         public static void BenchMarkReport()
