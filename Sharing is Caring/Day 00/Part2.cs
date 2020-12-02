@@ -9,11 +9,14 @@ namespace Day_00
     //Problem URL
     public class Part2 : IAdventProblem
     {
-        public string ProblemName { get => "Day 00: Something Something. Part Two."; }
+        private string Dayname = "00";
+        public string ProblemName { get => $"Day {Dayname}: Something Something. Part Two."; }
 
         public void Run()
         {
-            var inputList = Helpers.ReadStringsFile("Day 01/input.txt");
+            var inputList = Helpers.ReadStringsFile($"Day {Dayname}/input.txt");
+
+            Log.Information("A Solution Can Be Found.");
         }
     }
 }
