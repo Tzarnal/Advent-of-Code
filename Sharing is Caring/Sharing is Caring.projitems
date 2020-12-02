@@ -9,10 +9,17 @@
     <Import_RootNamespace>Advent</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Day 00\AdventDay.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Day 00\Part1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Day 00\Part2.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IAdventBenchmark.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IAdventProblem.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)SolutionTemplate.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Day 00\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

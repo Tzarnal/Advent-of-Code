@@ -13,7 +13,7 @@ namespace Advent
         public Today()
         {
             //What problem are we solving today
-            AdventDay = new Day_01.AdventDay();
+            AdventDay = new Day_03.AdventDay();
 
             ProblemPart1 = AdventDay.ProblemPart1;
             ProblemPart2 = AdventDay.ProblemPart2;
