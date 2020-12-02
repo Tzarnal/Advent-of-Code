@@ -11,7 +11,6 @@ namespace Day_02
 
         public AdventDay()
         {
-            //What problem are we solving today
             ProblemPart1 = new Part1();
             ProblemPart2 = new Part2();
         }

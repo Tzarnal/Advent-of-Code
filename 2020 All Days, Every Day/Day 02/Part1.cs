@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace Day_02
 {
-    //Page Link
+    //https://adventofcode.com/2020/day/2
     internal class Part1 : IAdventProblem
     {
         public string ProblemName { get => "Day 02: Password Philosophy. Part One."; }
