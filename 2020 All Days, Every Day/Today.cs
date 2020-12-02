@@ -8,8 +8,6 @@ namespace Advent
         public IAdventProblem ProblemPart1;
         public IAdventProblem ProblemPart2;
 
-        private IAdventProblem BenchmarkProblem;
-
         public Today()
         {
             //What problem are we solving today

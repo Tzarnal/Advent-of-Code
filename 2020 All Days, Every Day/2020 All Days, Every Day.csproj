@@ -29,4 +29,6 @@
     </None>
   </ItemGroup>
 
+  <Import Project="..\Sharing is Caring\Sharing is Caring.projitems" Label="Shared" />
+
 </Project>

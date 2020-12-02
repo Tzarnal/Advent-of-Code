@@ -32,7 +32,8 @@ namespace Day_02
 
         private bool TestPassword(PasswordPolicyRequirement Requirement, string Password)
         {
-            var occurance = LetterCount(Requirement.RequiredLetter, Password);
+            //var occurance = LetterCount(Requirement.RequiredLetter, Password);
+            var occurance = Password.Count(Requirement.RequiredLetter);
             if (occurance >= Requirement.MinimumAppearances && occurance <= Requirement.MaximumApperances)
             {
                 return true;

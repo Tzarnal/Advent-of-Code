@@ -29,14 +29,12 @@ namespace Advent
             today.ProblemPart2.Run();
 
             //Exit program now if this is a Debug build. If not continue and do a benchmark
-#if DEBUG
-            //return;
-#endif
-
+#if RELEASE
             Benchmark();
             Log.Logger = debugLogger;
             Log.Verbose("Benchmarks finished");
             BenchMarkReport();
+#endif
         }
 
         public static void Benchmark()
