@@ -7,8 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2020 All Days, Every Day", 
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sharing is Caring", "Sharing is Caring\Sharing is Caring.shproj", "{1EC9148C-2ACC-413A-8087-A38D7380FFAB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2015 Original Flavour", "2015 Original Flavour\2015 Original Flavour.csproj", "{0243ABEB-030F-41A8-9817-B2A6D8504DE3}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Sharing is Caring\Sharing is Caring.projitems*{0243abeb-030f-41a8-9817-b2a6d8504de3}*SharedItemsImports = 5
 		Sharing is Caring\Sharing is Caring.projitems*{1ec9148c-2acc-413a-8087-a38d7380ffab}*SharedItemsImports = 13
 		Sharing is Caring\Sharing is Caring.projitems*{b128ab6d-00b4-458b-944e-c90d452ebb36}*SharedItemsImports = 5
 	EndGlobalSection
@@ -21,6 +24,10 @@ Global
 		{B128AB6D-00B4-458B-944E-C90D452EBB36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B128AB6D-00B4-458B-944E-C90D452EBB36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B128AB6D-00B4-458B-944E-C90D452EBB36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0243ABEB-030F-41A8-9817-B2A6D8504DE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0243ABEB-030F-41A8-9817-B2A6D8504DE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0243ABEB-030F-41A8-9817-B2A6D8504DE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0243ABEB-030F-41A8-9817-B2A6D8504DE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
