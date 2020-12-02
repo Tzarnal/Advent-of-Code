@@ -13,10 +13,8 @@ namespace Advent
         public Today()
         {
             //What problem are we solving today
-            ProblemPart1 = new Day_01.Part1();
-            ProblemPart2 = new Day_01.Part2();
-
-            BenchmarkProblem = new Day_01.Part2EarlyExit();
+            ProblemPart1 = new Day_02.Part1();
+            ProblemPart2 = new Day_02.Part2();
         }
 
         [Benchmark]
