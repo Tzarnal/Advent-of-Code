@@ -9,7 +9,7 @@ namespace Day_00
     //Problem URL
     internal class Part1 : IAdventProblem
     {
-        private string Dayname = "00";
+        private string Dayname => Helpers.GetDayFromNamespace(this);
         public string ProblemName { get => $"Day {Dayname}: Something Something. Part One."; }
 
         public void Run()

@@ -33,5 +33,14 @@ namespace Advent
 
             return new List<string>(inputFile);
         }
+
+        public static string GetDayFromNamespace(object o)
+        {
+            var nameSpace = o.GetType().Namespace;
+
+            var day = nameSpace.Split('_')[1].Trim();
+
+            return day;
+        }
     }
 }

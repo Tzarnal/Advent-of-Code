@@ -10,7 +10,7 @@ namespace Day_02
     //https://adventofcode.com/2015/day/2
     internal class Part1 : IAdventProblem
     {
-        private string Dayname = "02";
+        private string Dayname => Helpers.GetDayFromNamespace(this);
         public string ProblemName { get => $"Day {Dayname}: I Was Told There Would Be No Math Part One."; }
 
         public void Run()
