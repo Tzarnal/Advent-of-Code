@@ -37,6 +37,7 @@ namespace Day_01
                     var product = inputN * difference;
 
                     Log.Information("Found it: {inputN} and {difference}. Product {product}", inputN, difference, product);
+                    return;
                 }
             }
         }
