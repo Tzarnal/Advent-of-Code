@@ -16,7 +16,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Program\CLI.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Program\Today.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Program\SpecificDay.cs" />
+    <Compile Include="..\Sharing is Caring\Program\LastDay.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Program\IAdventDay.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Program\IAdventProblem.cs" />
   </ItemGroup>
