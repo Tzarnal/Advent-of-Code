@@ -33,7 +33,9 @@ namespace Advent
         {
             var nameSpaces = from type in Assembly.GetExecutingAssembly().GetTypes()
                              select type;
-            nameSpaces = nameSpaces.Distinct().Where(t => t.FullName.Contains("AdventDay") && !t.FullName.Contains("00")).OrderBy(t => t.FullName); ;
+            nameSpaces = nameSpaces.Distinct().Where(t => t.FullName.Contains("AdventDay")
+            && !t.FullName.Contains("00")
+            && !t.FullName.Contains("IAdventDay")).OrderBy(t => t.FullName); ;
 
             return nameSpaces.ToList();
         }

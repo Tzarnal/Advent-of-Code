@@ -16,7 +16,7 @@ namespace Advent
         {
             var lastDay = FindLastDay();
 
-            IAdventDay AdventDay = (IAdventDay)Activator.CreateInstance(lastDay);
+            AdventDay = (IAdventDay)Activator.CreateInstance(lastDay);
 
             ProblemPart1 = AdventDay.ProblemPart1;
             ProblemPart2 = AdventDay.ProblemPart2;
@@ -26,7 +26,9 @@ namespace Advent
         {
             var nameSpaces = from type in Assembly.GetExecutingAssembly().GetTypes()
                              select type;
-            nameSpaces = nameSpaces.Distinct().Where(t => t.FullName.Contains("AdventDay")).OrderBy(t => t.FullName); ;
+            nameSpaces = nameSpaces.Distinct().Where(t => t.FullName.Contains("AdventDay")
+            && !t.FullName.Contains("00")
+            && !t.FullName.Contains("IAdventDay")).OrderBy(t => t.FullName); ;
 
             return nameSpaces.ToList().Last();
         }
