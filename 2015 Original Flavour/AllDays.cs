@@ -19,7 +19,7 @@ namespace Advent
         {
             foreach (var day in AdventDays)
             {
-                IAdventBenchmark AdventDay = (IAdventBenchmark)Activator.CreateInstance(day);
+                IAdventDay AdventDay = (IAdventDay)Activator.CreateInstance(day);
 
                 Log.Information("Running '{ProblemName}'", AdventDay.ProblemPart1.ProblemName);
                 AdventDay.ProblemPart1.Run();

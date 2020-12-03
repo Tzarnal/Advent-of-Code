@@ -1,10 +1,8 @@
-﻿using BenchmarkDotNet.Attributes;
-using Advent;
+﻿using Advent;
 
 namespace Day_02
 {
-    [MemoryDiagnoser]
-    public class AdventDay : IAdventBenchmark
+    public class AdventDay : IAdventDay
     {
         public IAdventProblem ProblemPart1 { get; set; }
         public IAdventProblem ProblemPart2 { get; set; }
@@ -15,13 +13,11 @@ namespace Day_02
             ProblemPart2 = new Part2();
         }
 
-        [Benchmark]
         public void PartOne()
         {
             ProblemPart1.Run();
         }
 
-        [Benchmark]
         public void PartTwo()
         {
             ProblemPart2.Run();

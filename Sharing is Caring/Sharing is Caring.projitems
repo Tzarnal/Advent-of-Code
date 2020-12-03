@@ -14,7 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Day 00\Part2.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)IAdventBenchmark.cs" />
+    <Compile Include="..\Sharing is Caring\IAdventDay.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IAdventProblem.cs" />
   </ItemGroup>
   <ItemGroup>
