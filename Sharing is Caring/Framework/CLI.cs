@@ -2,7 +2,7 @@
 using System;
 using System.IO;
 
-namespace Advent
+namespace Advent.Framework
 {
     public class CLI
     {

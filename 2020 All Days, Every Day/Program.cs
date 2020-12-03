@@ -1,5 +1,6 @@
 using Serilog;
 using System.IO;
+using Advent.Framework;
 
 namespace Advent
 {
