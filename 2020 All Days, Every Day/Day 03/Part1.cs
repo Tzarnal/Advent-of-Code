@@ -15,9 +15,7 @@ namespace Day_03
         public void Run()
         {
             var inputList = ParseInput($"Day {Dayname}/input.txt");
-            //var testinputList = ParseInput($"Day {Dayname}/input.txt");
 
-            //Solve(testinputList);
             Solve(inputList);
         }
 
@@ -30,18 +28,9 @@ namespace Day_03
 
             while (x < SlopeData.SlopeData.GetLength(0))
             {
-                try
+                if (SlopeData[x, y] == SlopeThing.Tree)
                 {
-                    if (SlopeData[x, y] == Thing.Tree)
-                    {
-                        treeCount++;
-                    }
-                    //Log.Debug("[{x},{y}] is {SlopeData}. Treecount: {treeCount}", x, y, SlopeData[x, y], treeCount);
-                }
-                catch (Exception)
-                {
-                    //Exceptions are a control structure now
-                    break;
+                    treeCount++;
                 }
 
                 x += 1;
@@ -54,22 +43,8 @@ namespace Day_03
         private Slope ParseInput(string filePath)
         {
             var data = Helpers.ReadStringsFile(filePath);
-            var width = data[0].Length;
 
-            var slopeData = new Thing[data.Count, width];
-
-            for (int x = 0; x < data.Count; x++)
-            {
-                for (int y = 0; y < width; y++)
-                {
-                    if (data[x][y] == '#')
-                    {
-                        slopeData[x, y] = Thing.Tree;
-                    }
-                }
-            }
-
-            return new Slope { SlopeData = slopeData };
+            return new Slope(data);
         }
     }
 }
