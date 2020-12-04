@@ -7,11 +7,11 @@ using System.Text.RegularExpressions;
 
 namespace Day_04
 {
-    //Problem URL
+    //https://adventofcode.com/2020/day/4#part2
     public class Part2 : IAdventProblem
     {
         private string Dayname => Helpers.GetDayFromNamespace(this);
-        public string ProblemName { get => $"Day {Dayname}: Something Something. Part Two."; }
+        public string ProblemName { get => $"Day {Dayname}: Passport Processing. Part Two."; }
 
         public void Run()
         {

@@ -1,17 +1,17 @@
-﻿using System;
-using System.IO;
-using System.Collections.Generic;
+﻿using Advent;
 using Serilog;
-using Advent;
+using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Text.RegularExpressions;
 
 namespace Day_04
 {
-    //https://adventofcode.com/2020/day/4
-    internal class Part1 : IAdventProblem
+    //https://adventofcode.com/2020/day/4#part2
+    public class Part2Revised : IAdventProblem
     {
         private string Dayname => Helpers.GetDayFromNamespace(this);
-        public string ProblemName { get => $"Day {Dayname}: Passport Processing. Part One."; }
+        public string ProblemName { get => $"Day {Dayname}: Passport Processing. Part Two."; }
 
         public void Run()
         {
@@ -27,19 +27,14 @@ namespace Day_04
             var validPassports = 0;
             var totalCount = 0;
 
-            foreach (var passport in passPorts)
+            foreach (var passportData in passPorts)
             {
-                totalCount++;
-                if (passport.Count == 8)
-                {
-                    validPassports++;
-                    continue;
-                }
+                var passPort = new Passport(passportData);
 
-                if (passport.Count == 7 && !passport.ContainsKey("cid"))
+                totalCount++;
+                if (passPort.Valid() || passPort.ValidWithoutCid())
                 {
                     validPassports++;
-                    continue;
                 }
             }
 
@@ -52,6 +47,9 @@ namespace Day_04
             var passPorts = new List<Dictionary<string, string>>();
 
             var splitData = data.Split(Environment.NewLine);
+
+            //var splitRegex = @".+\n\n";
+            //var splitResult = Regex.Match(data, splitRegex, RegexOptions.Singleline);
 
             var pairRegex = @"((\w+):([#\w]+))";
 
