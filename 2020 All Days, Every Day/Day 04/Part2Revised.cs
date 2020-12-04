@@ -15,8 +15,8 @@ namespace Day_04
 
         public void Run()
         {
-            //var testinputList = ParseInput($"Day {Dayname}/inputTest.txt");
-            //Solve(testinputList);
+            var testinputList = ParseInput($"Day {Dayname}/inputTest.txt");
+            Solve(testinputList);
 
             var inputList = ParseInput($"Day {Dayname}/input.txt");
             Solve(inputList);
@@ -46,32 +46,22 @@ namespace Day_04
             var data = File.ReadAllText(filePath);
             var passPorts = new List<Dictionary<string, string>>();
 
-            var splitData = data.Split(Environment.NewLine);
+            var entries = data.Trim().Split("\r\n\r\n");
 
-            //var splitRegex = @".+\n\n";
-            //var splitResult = Regex.Match(data, splitRegex, RegexOptions.Singleline);
-
-            var pairRegex = @"((\w+):([#\w]+))";
-
-            var passPort = new Dictionary<string, string>();
-            foreach (var line in splitData)
+            foreach (var entry in entries)
             {
-                if (string.IsNullOrWhiteSpace(line))
-                {
-                    passPorts.Add(passPort);
-                    passPort = new Dictionary<string, string>();
-                    continue;
-                }
+                var passport = new Dictionary<string, string>();
 
-                var pairMatches = Regex.Matches(line, pairRegex);
-                foreach (Match match in pairMatches)
+                var pairs = entry.Replace("\r\n", " ").Split(' ');
+
+                foreach (var pair in pairs)
                 {
-                    passPort.Add(match.Groups[2].Value, match.Groups[3].Value);
+                    var splitPair = pair.Split(":");
+                    passport.Add(splitPair[0], splitPair[1]);
                 }
+                passPorts.Add(passport);
             }
 
-            //Add final one
-            passPorts.Add(passPort);
             return passPorts;
         }
     }
