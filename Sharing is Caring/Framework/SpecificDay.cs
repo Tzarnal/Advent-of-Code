@@ -7,10 +7,7 @@ namespace Advent.Framework
 {
     class SpecificDay
     {
-        public IAdventProblem ProblemPart1;
-        public IAdventProblem ProblemPart2;
-
-        private IAdventDay AdventDay;
+        public IAdventDay AdventDay;
 
         public SpecificDay(string dayName)
         {
@@ -22,9 +19,6 @@ namespace Advent.Framework
             }
 
             AdventDay = (IAdventDay)Activator.CreateInstance(day);
-
-            ProblemPart1 = AdventDay.ProblemPart1;
-            ProblemPart2 = AdventDay.ProblemPart2;
         }
 
         private Type FindDay(string dayName)

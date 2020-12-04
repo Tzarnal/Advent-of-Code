@@ -11,7 +11,7 @@ namespace Day_04
     public class Part2Revised : IAdventProblem
     {
         private string Dayname => Helpers.GetDayFromNamespace(this);
-        public string ProblemName { get => $"Day {Dayname}: Passport Processing. Part Two."; }
+        public string ProblemName { get => $"Day {Dayname}: Passport Processing. Part Two (Revised)."; }
 
         public void Run()
         {

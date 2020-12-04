@@ -73,11 +73,7 @@ namespace Advent.Framework
             }
 
             //run solutions
-            Log.Information("Running '{ProblemName}'", specificDay.ProblemPart1.ProblemName);
-            specificDay.ProblemPart1.Run();
-
-            Log.Information("Running '{ProblemName}'", specificDay.ProblemPart2.ProblemName);
-            specificDay.ProblemPart2.Run();
+            specificDay.AdventDay.SolveProblems();
         }
 
         private void NoArgs()
@@ -85,11 +81,7 @@ namespace Advent.Framework
             var today = new LastDay();
 
             //run solutions
-            Log.Information("Running '{ProblemName}'", today.ProblemPart1.ProblemName);
-            today.ProblemPart1.Run();
-
-            Log.Information("Running '{ProblemName}'", today.ProblemPart2.ProblemName);
-            today.ProblemPart2.Run();
+            today.AdventDay.SolveProblems();
         }
     }
 }

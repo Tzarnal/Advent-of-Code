@@ -1,11 +1,12 @@
 ﻿using Advent;
+using Serilog;
 
 namespace Day_03
 {
     public class AdventDay : IAdventDay
     {
-        public IAdventProblem ProblemPart1 { get; set; }
-        public IAdventProblem ProblemPart2 { get; set; }
+        private IAdventProblem ProblemPart1;
+        private IAdventProblem ProblemPart2;
 
         public AdventDay()
         {
@@ -13,13 +14,12 @@ namespace Day_03
             ProblemPart2 = new Part2();
         }
 
-        public void PartOne()
+        public void SolveProblems()
         {
+            Log.Information("Running '{ProblemName}'", ProblemPart1.ProblemName);
             ProblemPart1.Run();
-        }
 
-        public void PartTwo()
-        {
+            Log.Information("Running '{ProblemName}'", ProblemPart2.ProblemName);
             ProblemPart2.Run();
         }
     }

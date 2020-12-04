@@ -19,13 +19,8 @@ namespace Advent.Framework
         {
             foreach (var day in AdventDays)
             {
-                IAdventDay AdventDay = (IAdventDay)Activator.CreateInstance(day);
-
-                Log.Information("Running '{ProblemName}'", AdventDay.ProblemPart1.ProblemName);
-                AdventDay.ProblemPart1.Run();
-
-                Log.Information("Running '{ProblemName}'", AdventDay.ProblemPart2.ProblemName);
-                AdventDay.ProblemPart2.Run();
+                var AdventDay = (IAdventDay)Activator.CreateInstance(day);
+                AdventDay.SolveProblems();
             }
         }
 

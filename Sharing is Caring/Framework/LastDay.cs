@@ -7,19 +7,13 @@ namespace Advent.Framework
 {
     public class LastDay
     {
-        public IAdventProblem ProblemPart1;
-        public IAdventProblem ProblemPart2;
-
-        private IAdventDay AdventDay;
+        public IAdventDay AdventDay;
 
         public LastDay()
         {
             var lastDay = FindLastDay();
 
             AdventDay = (IAdventDay)Activator.CreateInstance(lastDay);
-
-            ProblemPart1 = AdventDay.ProblemPart1;
-            ProblemPart2 = AdventDay.ProblemPart2;
         }
 
         private Type FindLastDay()
