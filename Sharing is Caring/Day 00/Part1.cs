@@ -14,11 +14,11 @@ namespace Day_00
 
         public void Run()
         {
-            var inputList = ParseInput($"Day {Dayname}/input.txt");
-            Solve(inputList);
-
             //var testinputList = ParseInput($"Day {Dayname}/inputTest.txt");
             //Solve(testinputList);
+
+            var inputList = ParseInput($"Day {Dayname}/input.txt");
+            Solve(inputList);
         }
 
         public void Solve(List<string> input)

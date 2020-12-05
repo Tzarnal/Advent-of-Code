@@ -1,5 +1,6 @@
 ﻿using Advent;
 using Serilog;
+using System;
 using System.Collections.Generic;
 
 namespace Day_05
@@ -25,17 +26,15 @@ namespace Day_05
 
             foreach (var line in input)
             {
-                var row = BinarySearch(line.Substring(0, 7), 127);
-                var column = BinarySearch(line.Substring(7), 7);
+                var seatID2 = ItsBinaryYouIdiot(line);
 
-                var seatID = (row * 8) + column;
-
-                seatList.Add(seatID);
+                seatList.Add(seatID2);
             }
 
             for (var seat = 0; seat <= 1024; seat++)
             {
-                if (!seatList.Contains(seat) && seatList.Contains(seat - 1) && seatList.Contains(seat + 1))
+                if (!seatList.Contains(seat) && seatList.Contains(seat - 1)
+                    && seatList.Contains(seat + 1))
                 {
                     Log.Information("Your Seat ID is {seat}", seat);
                     return;
@@ -43,6 +42,14 @@ namespace Day_05
             }
 
             Log.Information("Couldn't find Seat ID");
+        }
+
+        public int ItsBinaryYouIdiot(string input)
+        {
+            input = input.Replace('F', '0').Replace('L', '0');
+            input = input.Replace('B', '1').Replace('R', '1');
+
+            return Convert.ToInt32(input, 2);
         }
 
         public int BinarySearch(string input, int max)
