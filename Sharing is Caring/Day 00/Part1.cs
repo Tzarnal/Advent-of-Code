@@ -7,7 +7,7 @@ using Advent;
 namespace Day_00
 {
     //Problem URL
-    internal class Part1 : IAdventProblem
+    public class Part1 : IAdventProblem
     {
         private string Dayname => Helpers.GetDayFromNamespace(this);
         public string ProblemName { get => $"Day {Dayname}: Something Something. Part One."; }
