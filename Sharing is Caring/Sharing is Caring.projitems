@@ -22,9 +22,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)IAdventProblem.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)Day 00\input.txt">
+    <Content Include="$(MSBuildThisFileDirectory)Day 00\input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Day 00\inputTest.txt">
