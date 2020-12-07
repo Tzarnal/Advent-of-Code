@@ -8,9 +8,10 @@ namespace Advent.Framework
     {
         public CLI()
         {
+            string customTemplate = "[{Timestamp:HH:mm:ss ffff} {Level:u3}] {Message}{NewLine}{Exception}";
             var debugLogger = new LoggerConfiguration()
                                      .MinimumLevel.Verbose()
-                                     .WriteTo.Console()
+                                     .WriteTo.Console(outputTemplate: customTemplate)
                                      .CreateLogger();
             Log.Logger = debugLogger;
         }
