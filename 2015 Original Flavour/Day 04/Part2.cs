@@ -43,8 +43,6 @@ namespace Day_04
 
                 i++;
             }
-
-            Log.Error("Could not find hash for key {input}.", input);
         }
     }
 }
