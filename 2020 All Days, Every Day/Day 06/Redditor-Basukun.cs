@@ -59,11 +59,6 @@ namespace Day_06
                     }
                 }
                 totalYesses += groupYesses.Count();
-                if (totalYesses is 1017)
-                {
-                    Log.Information("{@group}", group);
-                }
-
                 //Log.Information("After {groupcount} groups and {formcount} forms the total is: {total}.", groupcount, formcount, totalYesses);
             }
 
