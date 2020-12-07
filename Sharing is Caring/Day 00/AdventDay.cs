@@ -16,10 +16,10 @@ namespace Day_00
 
         public void SolveProblems()
         {
-            Log.Information("Running '{ProblemName}'", ProblemPart1.ProblemName);
+            Log.Information("Running {ProblemName}", ProblemPart1.ProblemName);
             ProblemPart1.Run();
 
-            Log.Information("Running '{ProblemName}'", ProblemPart2.ProblemName);
+            Log.Information("Running {ProblemName}", ProblemPart2.ProblemName);
             ProblemPart2.Run();
         }
     }

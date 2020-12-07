@@ -18,13 +18,13 @@ namespace Day_06
 
         public void SolveProblems()
         {
-            Log.Information("Running '{ProblemName}'", ProblemPart1.ProblemName);
+            Log.Information("Running {ProblemName}", ProblemPart1.ProblemName);
             ProblemPart1.Run();
 
-            Log.Information("Running '{ProblemName}'", ProblemPart2.ProblemName);
+            Log.Information("Running {ProblemName}", ProblemPart2.ProblemName);
             ProblemPart2.Run();
 
-            Log.Information("Running '{ProblemName}'", Reddit1.ProblemName);
+            Log.Information("Running {ProblemName}", Reddit1.ProblemName);
             Reddit1.Run();
         }
     }
