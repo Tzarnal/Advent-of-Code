@@ -6,14 +6,24 @@ namespace Advent.Framework
 {
     public class CLI
     {
+        public static Serilog.Core.Logger DefaultLogger;
+        public static Serilog.Core.Logger IndentLogger;
+
         public CLI()
         {
-            string customTemplate = "[{Timestamp:HH:mm:ss ffff} {Level:u3}] {Message}{NewLine}{Exception}";
-            var debugLogger = new LoggerConfiguration()
+            string defaultLoggerTemplate = "[{Timestamp:HH:mm:ss ffff} {Level:u3}] {Message}{NewLine}{Exception}";
+            DefaultLogger = new LoggerConfiguration()
                                      .MinimumLevel.Verbose()
-                                     .WriteTo.Console(outputTemplate: customTemplate)
+                                     .WriteTo.Console(outputTemplate: defaultLoggerTemplate)
                                      .CreateLogger();
-            Log.Logger = debugLogger;
+
+            string indentLoggerTemplate = "[{Timestamp:HH:mm:ss ffff} {Level:u3}] \t{Message}{NewLine}{Exception}";
+            IndentLogger = new LoggerConfiguration()
+                                     .MinimumLevel.Verbose()
+                                     .WriteTo.Console(outputTemplate: indentLoggerTemplate)
+                                     .CreateLogger();
+
+            Log.Logger = DefaultLogger;
         }
 
         public void Process(string[] args)

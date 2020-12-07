@@ -1,6 +1,8 @@
 ﻿using System.IO;
 using System.Collections.Generic;
 using Serilog;
+using Advent.Framework;
+using System;
 
 namespace Advent
 {
@@ -41,6 +43,16 @@ namespace Advent
             var day = nameSpace.Split('_')[1].Trim();
 
             return day;
+        }
+
+        public static void ProblemRunner(IAdventProblem problem)
+        {
+            Console.WriteLine();
+            Log.Information("Running {ProblemName}", problem.ProblemName);
+            Log.Logger = CLI.IndentLogger;
+            problem.Run();
+
+            Log.Logger = CLI.DefaultLogger;
         }
     }
 }

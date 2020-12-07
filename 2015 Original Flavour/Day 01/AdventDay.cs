@@ -16,11 +16,8 @@ namespace Day_01
 
         public void SolveProblems()
         {
-            Log.Information("Running {ProblemName}", ProblemPart1.ProblemName);
-            ProblemPart1.Run();
-
-            Log.Information("Running {ProblemName}", ProblemPart2.ProblemName);
-            ProblemPart2.Run();
+            Helpers.ProblemRunner(ProblemPart1);
+            Helpers.ProblemRunner(ProblemPart2);
         }
     }
 }
