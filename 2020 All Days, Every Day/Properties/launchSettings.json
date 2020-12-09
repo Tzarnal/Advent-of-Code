@@ -6,6 +6,10 @@
     "(All) 2020 All Days, Every Day": {
       "commandName": "Project",
       "commandLineArgs": "All"
+    },
+    "Specific Day": {
+      "commandName": "Project",
+      "commandLineArgs": "8"
     }
   }
 }
