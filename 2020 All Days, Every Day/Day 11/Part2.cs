@@ -28,7 +28,6 @@ namespace Day_11
             Ferry referenceFerry;
 
             var runCount = 0;
-
             do
             {
                 referenceFerry = new Ferry(ferry);
