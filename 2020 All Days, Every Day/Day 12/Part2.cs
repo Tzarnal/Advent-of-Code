@@ -69,8 +69,8 @@ namespace Day_12
                         break;
                 }
 
-                //Log.Verbose("Ship (EastWest {eastWest}, NorthSouth {northSouth}). Waypoint (EastWest {waypointEastWest}, NorthSouth {waypointNorthSouth})",
-                //    shipEastWest, shipNorthSouth, waypointEastWest, waypointNorthSouth);
+                Log.Verbose("Ship (EastWest {eastWest}, NorthSouth {northSouth}). Waypoint (EastWest {waypointEastWest}, NorthSouth {waypointNorthSouth})",
+                    shipEastWest, shipNorthSouth, waypointEastWest, waypointNorthSouth);
             }
             var awnser = Math.Abs(shipNorthSouth) + Math.Abs(shipEastWest);
 
