@@ -19,6 +19,7 @@ namespace Day_13
             foreach (var test in tests)
             {
                 Solve(test.Item2, test.Item1);
+                //BruteSolve(test.Item2, 0, test.Item1);
             }
 
             var (DepartureTime, BusTimes) = ParseInput($"Day {Dayname}/input.txt");
@@ -83,6 +84,7 @@ namespace Day_13
         public void BruteSolve(List<int> BusTimes, long earliest, long testTime)
         {
             var step = BusTimes[0];
+            //var step = BusTimes.Max(t => t) - BusTimes.IndexOf(BusTimes.Max(t => t));
             for (long departureTime = earliest; departureTime < long.MaxValue; departureTime += step)
             {
                 var successes = new List<long>();
@@ -109,8 +111,8 @@ namespace Day_13
 
                 if (successes.Count == BusTimes.Count)
                 {
-                    Log.Information("Found earliest departure time {departureTime}. Correct time {testTime}.",
-                        departureTime, testTime, successes);
+                    var passed = departureTime == testTime;
+                    Log.Information("Test {awnser}, looking for {testTime}. Passed [{passed}].", departureTime, testTime, passed);
                     return;
                 }
             }
