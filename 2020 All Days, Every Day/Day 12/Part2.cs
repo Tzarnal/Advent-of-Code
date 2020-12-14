@@ -68,9 +68,6 @@ namespace Day_12
                         Log.Warning("Defaulted on : {@instruction}", instruction);
                         break;
                 }
-
-                Log.Verbose("Ship (EastWest {eastWest}, NorthSouth {northSouth}). Waypoint (EastWest {waypointEastWest}, NorthSouth {waypointNorthSouth})",
-                    shipEastWest, shipNorthSouth, waypointEastWest, waypointNorthSouth);
             }
             var awnser = Math.Abs(shipNorthSouth) + Math.Abs(shipEastWest);
 
