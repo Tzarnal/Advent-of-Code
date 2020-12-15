@@ -4,6 +4,7 @@ using System.Linq;
 using System.Collections.Generic;
 using Serilog;
 using Advent;
+using RegExtract;
 
 namespace Day_00
 {
