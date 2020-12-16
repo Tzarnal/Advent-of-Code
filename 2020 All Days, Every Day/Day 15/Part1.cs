@@ -58,7 +58,7 @@ namespace Day_15
                 i++;
             }
 
-            for (i = i; i <= 2020; i++)
+            for (; i <= 2020; i++)
             {
                 if (spokenNumbers.ContainsKey(lastNumber))
                 {
