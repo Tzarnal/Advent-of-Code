@@ -24,3 +24,5 @@ App_Data/
 
 *.png
 *.kra*
+
+Templater/session.txt

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Templater": {
+      "commandName": "Project",
+      "commandLineArgs": "2015 10"
+    }
+  }
+}
