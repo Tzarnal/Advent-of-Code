@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+        <Content Include="Day 17\inputTest.txt"><CopyToOutputDirectory>Always</CopyToOutputDirectory></Content>
+        <Content Include="Day 17\input.txt"><CopyToOutputDirectory>Always</CopyToOutputDirectory></Content>
     <None Remove="C:\Users\MoonWolf\.nuget\packages\microsoft.diagnostics.tracing.traceevent\2.0.49\build\..\lib\native\amd64\KernelTraceControl.dll" />
     <None Remove="C:\Users\MoonWolf\.nuget\packages\microsoft.diagnostics.tracing.traceevent\2.0.49\build\..\lib\native\amd64\msdia140.dll" />
     <None Remove="C:\Users\MoonWolf\.nuget\packages\microsoft.diagnostics.tracing.traceevent\2.0.49\build\..\lib\native\x86\KernelTraceControl.dll" />
