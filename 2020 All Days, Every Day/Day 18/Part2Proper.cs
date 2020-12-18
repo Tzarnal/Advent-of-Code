@@ -9,10 +9,10 @@ using RegExtract;
 namespace Day_18
 {
     //https://adventofcode.com/2020/day/18#part2
-    public class Part2 : IAdventProblem
+    public class Part2Proper : IAdventProblem
     {
         private string Dayname => Helpers.GetDayFromNamespace(this);
-        public string ProblemName { get => $"Day {Dayname}: Operation Order. Part Two."; }
+        public string ProblemName { get => $"Day {Dayname}: Operation Order. Part Two. ( Properly this time )"; }
 
         public void Run()
         {
@@ -25,27 +25,12 @@ namespace Day_18
 
         public void Solve(List<string> input)
         {
-            long sum = 0;
+            double sum = 0;
 
             foreach (var line in input)
             {
-                var lineInProgress = line;
-                var firstNested = FirstNestedStatement(lineInProgress);
-
-                //Process all the parenthesis pairs one by one deepest first
-                while (!string.IsNullOrWhiteSpace(firstNested))
-                {
-                    var result = DoMath(firstNested);
-                    lineInProgress = lineInProgress.Replace($"({firstNested})", result.ToString());
-
-                    firstNested = FirstNestedStatement(lineInProgress);
-                }
-
-                //Do a final pass over the input that remains
-                var endResult = DoMath(lineInProgress);
-
-                //Track the total sum.
-                sum += endResult;
+                var result = AdvancedMath.DoMath(line);
+                sum += result;
             }
 
             Log.Information("After {count} bits of math homework the total sum is {sum}",
@@ -122,7 +107,7 @@ namespace Day_18
             return valA;
         }
 
-        //returns the deepest nested statement
+        //resturns the deepest nested statement
         private string FirstNestedStatement(string value)
         {
             if (string.IsNullOrEmpty(value))
