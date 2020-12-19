@@ -19,15 +19,13 @@ namespace Day_19
             //var (rules, messages) = ParseInput($"Day {Dayname}/inputTest.txt");
             //Solve(rules, messages);
 
-            var (rules, messages) = ParseInput($"Day {Dayname}/input.txt");
-            Solve(rules, messages);
+            //var (rules, messages) = ParseInput($"Day {Dayname}/input.txt");
+            //Solve(rules, messages);
         }
 
         public void Solve(Dictionary<int, string> RuleInput, List<string> Messages)
         {
             var Rules = new Dictionary<int, IMessageRule>();
-
-            var maxLength = Messages.Max(m => m.Length);
 
             foreach (var ruleInput in RuleInput)
             {
@@ -49,7 +47,7 @@ namespace Day_19
             {
                 foreach (var rule in Rules.Where(r => !r.Value.Ready))
                 {
-                    rule.Value.Prepare(Rules, maxLength);
+                    rule.Value.Prepare(Rules);
                 }
             }
 
