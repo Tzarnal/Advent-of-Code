@@ -45,5 +45,12 @@ namespace Advent
             for (int i = 0; i < text.Length; i += chunkSize)
                 yield return text.Substring(i, chunkSize);
         }
+
+        public static string Reverse(this string input)
+        {
+            char[] array = input.ToCharArray();
+            Array.Reverse(array);
+            return new String(array);
+        }
     }
 }
