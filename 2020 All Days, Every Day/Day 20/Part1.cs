@@ -17,7 +17,7 @@ namespace Day_20
         public void Run()
         {
             var testinputList = ParseInput($"Day {Dayname}/inputTest.txt");
-            //Solve(testinputList);
+            Solve(testinputList);
 
             var inputList = ParseInput($"Day {Dayname}/input.txt");
             Solve(inputList);
@@ -30,7 +30,7 @@ namespace Day_20
 
             foreach (var tile in input)
             {
-                var edges = tile.GetEdgesMin();
+                var edges = tile.MinEdges();
                 tileEdges.Add(tile.TileIDNumber, edges);
 
                 foreach (var edge in edges)
