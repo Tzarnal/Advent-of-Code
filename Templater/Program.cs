@@ -225,7 +225,7 @@ namespace Templater
             string content = wc.DownloadString(url);
 
             //Fix to enviroment .newline
-            content.Replace("\n", Environment.NewLine);
+            content = content.Replace("\n", Environment.NewLine);
 
             return content;
         }
