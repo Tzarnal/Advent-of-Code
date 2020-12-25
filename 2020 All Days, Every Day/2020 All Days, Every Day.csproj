@@ -148,6 +148,9 @@
     <None Update="Day 20\input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Day 20\inputBigImageTest.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Day 20\inputTest.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

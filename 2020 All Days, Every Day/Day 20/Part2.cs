@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using Serilog;
 using Advent;
 using RegExtract;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Day_20
 {
@@ -20,25 +22,119 @@ namespace Day_20
             Solve(testinputList);
 
             var inputList = ParseInput($"Day {Dayname}/input.txt");
-            //Solve(inputList);
+            Solve(inputList);
         }
 
         public void Solve(List<Tile> input)
         {
+            var imageSize = (int)Math.Sqrt(input.Count);
+
             var (cornerTiles, sideTiles) = GetTileGroups(input);
             var centerTiles = input.Except(cornerTiles).Except(sideTiles).ToList();
 
-            var image = AssembleTiles(centerTiles, cornerTiles, sideTiles, (int)Math.Sqrt(input.Count));
+            var imageTiled = AssembleTiles(centerTiles, cornerTiles, sideTiles, imageSize);
+            var image = AssembleImage(imageTiled, imageSize);
 
-            for (int x = 0; x < image.GetLength(0); x++)
+            var monstercount = CountAndRotate(image);
+
+            var monsterHashes = 15 * monstercount; // its just a hard fact here is # in the image of a monster
+            var imageHashes = image.CountInGrid("#");
+
+            var roughness = imageHashes - monsterHashes;
+
+            Log.Information("Found {count} monsters, the water roughness is {roughness}.",
+                monstercount, roughness);
+        }
+
+        public int CountAndRotate(TextGrid Image)
+        {
+            var count = FindMonsters(Image.ToStringList());
+
+            if (count > 0)
+                return count;
+
+            for (int i = 0; i <= 4; i++)
             {
-                for (int y = 0; y < image.GetLength(1); y++)
+                Image.RotateLeft();
+
+                count = FindMonsters(Image.ToStringList());
+                if (count > 0)
+                    return count;
+            }
+
+            Image.FlipHorizontal();
+
+            count = FindMonsters(Image.ToStringList());
+            if (count > 0)
+                return count;
+
+            for (int i = 0; i <= 4; i++)
+            {
+                Image.RotateLeft();
+
+                count = FindMonsters(Image.ToStringList());
+                if (count > 0)
+                    return count;
+            }
+
+            return count;
+        }
+
+        public static int FindMonsters(List<string> Image)
+        {
+            var count = 0;
+
+            for (var x = 0; x <= Image[0].Count() - 20; x++)
+            {
+                for (var y = 0; y <= Image.Count - 3; y++)
                 {
-                    image[x, y].ConsolePrint();
+                    if (FindSeaMonster(Image, x, y))
+                    {
+                        count++;
+                    }
                 }
             }
 
-            Log.Information("A solution can be found.");
+            return count;
+        }
+
+        public static bool FindSeaMonster(List<string> Image, int x, int y)
+        {
+            var firstMonsterLine = new Regex("^..................#.");
+            var secondMonsterLine = new Regex("^#....##....##....###");
+            var thirdMonsterLine = new Regex("^.#..#..#..#..#..#...");
+            return firstMonsterLine.IsMatch(Image[y].Substring(x))
+                   && secondMonsterLine.IsMatch(Image[y + 1].Substring(x))
+                   && thirdMonsterLine.IsMatch(Image[y + 2].Substring(x));
+        }
+
+        public TextGrid AssembleImage(Tile[,] imageTiles, int ImageSize)
+        {
+            var totalImageSize = ImageSize * 8; //After shrinking the border each tile is 8x8
+
+            var imageStrings = new Dictionary<int, string>();
+            for (int i = 0; i < totalImageSize; i++)
+            {
+                imageStrings.Add(i, "");
+            }
+
+            for (int imageTilesX = 0; imageTilesX < imageTiles.GetLength(0); imageTilesX++)
+            {
+                for (int imageTilesY = 0; imageTilesY < imageTiles.GetLength(1); imageTilesY++)
+                {
+                    for (int x = 1; x <= 8; x++)
+                    {
+                        for (int y = 1; y <= 8; y++)
+                        {
+                            imageStrings[imageTilesX * 8 + x - 1] += imageTiles[imageTilesX, imageTilesY][x, y];
+                        }
+                    }
+                }
+            }
+
+            var imageStringsList = imageStrings.Select(s => s.Value).ToList();
+
+            return new TextGrid(imageStringsList);
         }
 
         public Tile[,] AssembleTiles(List<Tile> CenterTiles, List<Tile> CornerTiles, List<Tile> SideTiles, int ImageSize)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace Advent
 {
@@ -316,6 +317,16 @@ namespace Advent
             }
 
             return sb.ToString();
+        }
+
+        public string[] ToStringArray()
+        {
+            return ToString().Split(Environment.NewLine);
+        }
+
+        public List<string> ToStringList()
+        {
+            return ToStringArray().ToList();
         }
 
         public bool Equals(TextGrid inputGrid)
