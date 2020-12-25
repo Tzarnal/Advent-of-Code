@@ -204,15 +204,92 @@ namespace Advent
             return string.Join("", CellsAlongPath(x, y, Path));
         }
 
-        public void Grow(int i = 3)
+        public Dictionary<string, string> Edges()
         {
-            var g = i * 2;
+            return new Dictionary<string, string>
+            {
+                { "Top", StringAlongPath(0, 0, Right) },
+                { "Right", StringAlongPath(0, Grid.GetLength(0)-1, Down) },
+                { "Bottom", StringAlongPath(Grid.GetLength(0)-1, 0, Right) },
+                { "Left", StringAlongPath(0, 0, Down) }
+            };
+        }
+
+        public void Grow(int Radius = 3)
+        {
+            var g = Radius * 2;
             var newGrid = new String[Grid.GetLength(0) + g, Grid.GetLength(1) + g];
             for (var x = 0; x < Grid.GetLength(0); x++)
             {
                 for (var y = 0; y < Grid.GetLength(1); y++)
                 {
-                    newGrid[x + i, y + i] = Grid[x, y];
+                    newGrid[x + Radius, y + Radius] = Grid[x, y];
+                }
+            }
+
+            Grid = newGrid;
+        }
+
+        public void FlipHorizontal()
+        {
+            var newGrid = new String[Grid.GetLength(0), Grid.GetLength(1)];
+
+            for (var x = 0; x < newGrid.GetLength(0); x++)
+            {
+                for (var y = 0; y < newGrid.GetLength(1); y++)
+                {
+                    var newY = newGrid.GetLength(1) - 1 - y;
+                    newGrid[x, y] = this[x, newY];
+                }
+            }
+
+            Grid = newGrid;
+        }
+
+        public void FlipVertical()
+        {
+            var newGrid = new String[Grid.GetLength(0), Grid.GetLength(1)];
+
+            for (var x = 0; x < newGrid.GetLength(0); x++)
+            {
+                for (var y = 0; y < newGrid.GetLength(1); y++)
+                {
+                    var newX = newGrid.GetLength(0) - 1 - x;
+                    newGrid[x, y] = this[newX, y];
+                }
+            }
+
+            Grid = newGrid;
+        }
+
+        public void RotateRight()
+        {
+            var newGrid = new String[Grid.GetLength(1), Grid.GetLength(0)];
+
+            for (var x = 0; x < newGrid.GetLength(0); x++)
+            {
+                for (var y = 0; y < newGrid.GetLength(1); y++)
+                {
+                    var newY = newGrid.GetLength(0) - 1 - y;
+
+                    newGrid[x, y] = this[newY, x];
+                }
+            }
+
+            Grid = newGrid;
+        }
+
+        public void RotateLeft()
+        {
+            var newGrid = new String[Grid.GetLength(1), Grid.GetLength(0)];
+
+            for (var x = 0; x < newGrid.GetLength(0); x++)
+            {
+                for (var y = 0; y < newGrid.GetLength(1); y++)
+                {
+                    var newX = newGrid.GetLength(1) - 1 - x;
+
+                    newGrid[x, y] = this[y, newX];
                 }
             }
 
