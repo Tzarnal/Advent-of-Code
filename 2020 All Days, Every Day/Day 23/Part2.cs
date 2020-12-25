@@ -150,11 +150,6 @@ public class LinkedListItem
         this.Value = Value;
     }
 
-    public LinkedListItem(long Value, LinkedListItem Previous)
-    {
-        this.Value = Value;
-    }
-
     public LinkedListItem NextN(int n)
     {
         if (n < 1)
