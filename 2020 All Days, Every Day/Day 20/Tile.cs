@@ -81,13 +81,96 @@ namespace Day_20
 
         public int LeftEdgeInt()
         {
-            return 0;
+            var leftEdge = StringAlongPath(0, 0, Down);
+            return EdgetoInt(leftEdge);
+        }
+
+        public int RightEdgeInt()
+        {
+            var rightEdge = StringAlongPath(0, Grid.GetLength(0) - 1, Down);
+            return EdgetoInt(rightEdge);
+        }
+
+        public int TopEdgeInt()
+        {
+            var topEdge = StringAlongPath(0, 0, Right);
+            return EdgetoInt(topEdge);
+        }
+
+        public int BottomEdgeInt()
+        {
+            var bottomEdge = StringAlongPath(Grid.GetLength(0) - 1, 0, Right);
+            return EdgetoInt(bottomEdge);
         }
 
         new public void ConsolePrint()
         {
             Console.WriteLine(TileID);
             Console.WriteLine(ToString());
+        }
+
+        public bool RotateEdgeToLeft(int desiredEdge)
+        {
+            if (LeftEdgeInt() == desiredEdge)
+                return true;
+
+            if (!PossibleEdges.Contains(desiredEdge))
+                return false;
+
+            for (int i = 0; i <= 4; i++)
+            {
+                RotateLeft();
+
+                if (LeftEdgeInt() == desiredEdge)
+                    return true;
+            }
+
+            FlipHorizontal();
+
+            if (LeftEdgeInt() == desiredEdge)
+                return true;
+
+            for (int i = 0; i <= 4; i++)
+            {
+                RotateLeft();
+
+                if (LeftEdgeInt() == desiredEdge)
+                    return true;
+            }
+
+            return false;
+        }
+
+        public bool RotateEdgeToTop(int desiredEdge)
+        {
+            if (TopEdgeInt() == desiredEdge)
+                return true;
+
+            if (!PossibleEdges.Contains(desiredEdge))
+                return false;
+
+            for (int i = 0; i <= 4; i++)
+            {
+                RotateLeft();
+
+                if (TopEdgeInt() == desiredEdge)
+                    return true;
+            }
+
+            FlipHorizontal();
+
+            if (TopEdgeInt() == desiredEdge)
+                return true;
+
+            for (int i = 0; i <= 4; i++)
+            {
+                RotateLeft();
+
+                if (TopEdgeInt() == desiredEdge)
+                    return true;
+            }
+
+            return false;
         }
 
         new public string ToString()
