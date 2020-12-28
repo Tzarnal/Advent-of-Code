@@ -1,6 +1,6 @@
 ﻿using Serilog;
 using System;
-using System.IO;
+using System.Diagnostics;
 
 namespace Advent.Framework
 {
@@ -13,15 +13,32 @@ namespace Advent.Framework
         {
             string defaultLoggerTemplate = "[{Timestamp:HH:mm:ss ffff} {Level:u3}] {Message}{NewLine}{Exception}";
             DefaultLogger = new LoggerConfiguration()
-                                     .MinimumLevel.Verbose()
+                                     .MinimumLevel.Information()
                                      .WriteTo.Console(outputTemplate: defaultLoggerTemplate)
                                      .CreateLogger();
 
             string indentLoggerTemplate = "[{Timestamp:HH:mm:ss ffff} {Level:u3}] \t{Message}{NewLine}{Exception}";
             IndentLogger = new LoggerConfiguration()
-                                     .MinimumLevel.Verbose()
+                                     .MinimumLevel.Information()
                                      .WriteTo.Console(outputTemplate: indentLoggerTemplate)
                                      .CreateLogger();
+            [Conditional("DEBUG")]
+            static void DebugLoggers()
+            {
+                string defaultLoggerTemplate = "[{Timestamp:HH:mm:ss ffff} {Level:u3}] {Message}{NewLine}{Exception}";
+                DefaultLogger = new LoggerConfiguration()
+                                     .MinimumLevel.Verbose()
+                                     .WriteTo.Console(outputTemplate: defaultLoggerTemplate)
+                                     .CreateLogger();
+
+                string indentLoggerTemplate = "[{Timestamp:HH:mm:ss ffff} {Level:u3}] \t{Message}{NewLine}{Exception}";
+                IndentLogger = new LoggerConfiguration()
+                                         .MinimumLevel.Verbose()
+                                         .WriteTo.Console(outputTemplate: indentLoggerTemplate)
+                                         .CreateLogger();
+            }
+
+            DebugLoggers();
 
             Log.Logger = DefaultLogger;
         }

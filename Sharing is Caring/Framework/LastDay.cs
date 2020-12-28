@@ -22,7 +22,7 @@ namespace Advent.Framework
                              select type;
             nameSpaces = nameSpaces.Distinct().Where(t => t.FullName.Contains("AdventDay")
             && !t.FullName.Contains("00")
-            && !t.FullName.Contains("IAdventDay")).OrderBy(t => t.FullName); ;
+            && !t.FullName.Contains("IAdventDay")).OrderBy(t => t.FullName);
 
             return nameSpaces.ToList().Last();
         }
