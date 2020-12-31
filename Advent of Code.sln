@@ -15,11 +15,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2016 Easterbunny Eradicatio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2017 25 Milliseconds Until Midnight", "2017 25 Milliseconds Until Midnight\2017 25 Milliseconds Until Midnight.csproj", "{28158CA6-1E64-43F1-9BCD-0DF000369DA9}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2018 Now With Time Travel", "2018 Now With Time Travel\2018 Now With Time Travel.csproj", "{44BCE1CA-B4EE-43EE-8B2F-7E2B5E4543E3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2019 Iiiint Cooode", "2019 Iiiint Cooode\2019 Iiiint Cooode.csproj", "{3BE6A637-DBE7-46AF-A83A-B75FCA9325BB}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Sharing is Caring\Sharing is Caring.projitems*{0243abeb-030f-41a8-9817-b2a6d8504de3}*SharedItemsImports = 5
 		Sharing is Caring\Sharing is Caring.projitems*{1ec9148c-2acc-413a-8087-a38d7380ffab}*SharedItemsImports = 13
 		Sharing is Caring\Sharing is Caring.projitems*{28158ca6-1e64-43f1-9bcd-0df000369da9}*SharedItemsImports = 5
+		Sharing is Caring\Sharing is Caring.projitems*{3be6a637-dbe7-46af-a83a-b75fca9325bb}*SharedItemsImports = 5
+		Sharing is Caring\Sharing is Caring.projitems*{44bce1ca-b4ee-43ee-8b2f-7e2b5e4543e3}*SharedItemsImports = 5
 		Sharing is Caring\Sharing is Caring.projitems*{b128ab6d-00b4-458b-944e-c90d452ebb36}*SharedItemsImports = 5
 		Sharing is Caring\Sharing is Caring.projitems*{ee05b9a0-2144-4165-973e-6959e6658e21}*SharedItemsImports = 5
 	EndGlobalSection
@@ -48,6 +54,14 @@ Global
 		{28158CA6-1E64-43F1-9BCD-0DF000369DA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28158CA6-1E64-43F1-9BCD-0DF000369DA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28158CA6-1E64-43F1-9BCD-0DF000369DA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44BCE1CA-B4EE-43EE-8B2F-7E2B5E4543E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44BCE1CA-B4EE-43EE-8B2F-7E2B5E4543E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44BCE1CA-B4EE-43EE-8B2F-7E2B5E4543E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44BCE1CA-B4EE-43EE-8B2F-7E2B5E4543E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BE6A637-DBE7-46AF-A83A-B75FCA9325BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BE6A637-DBE7-46AF-A83A-B75FCA9325BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BE6A637-DBE7-46AF-A83A-B75FCA9325BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BE6A637-DBE7-46AF-A83A-B75FCA9325BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
