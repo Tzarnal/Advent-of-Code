@@ -9,13 +9,16 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sharing is Caring", "Sharin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2015 Original Flavour", "2015 Original Flavour\2015 Original Flavour.csproj", "{0243ABEB-030F-41A8-9817-B2A6D8504DE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Templater", "Templater\Templater.csproj", "{831DC9A3-CDA0-46F8-B4D2-4384F8C7974C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Templater", "Templater\Templater.csproj", "{831DC9A3-CDA0-46F8-B4D2-4384F8C7974C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2016 Easterbunny Eradication", "2016 Easterbunny Eradication\2016 Easterbunny Eradication.csproj", "{EE05B9A0-2144-4165-973E-6959E6658E21}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Sharing is Caring\Sharing is Caring.projitems*{0243abeb-030f-41a8-9817-b2a6d8504de3}*SharedItemsImports = 5
 		Sharing is Caring\Sharing is Caring.projitems*{1ec9148c-2acc-413a-8087-a38d7380ffab}*SharedItemsImports = 13
 		Sharing is Caring\Sharing is Caring.projitems*{b128ab6d-00b4-458b-944e-c90d452ebb36}*SharedItemsImports = 5
+		Sharing is Caring\Sharing is Caring.projitems*{ee05b9a0-2144-4165-973e-6959e6658e21}*SharedItemsImports = 5
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +37,10 @@ Global
 		{831DC9A3-CDA0-46F8-B4D2-4384F8C7974C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{831DC9A3-CDA0-46F8-B4D2-4384F8C7974C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{831DC9A3-CDA0-46F8-B4D2-4384F8C7974C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE05B9A0-2144-4165-973E-6959E6658E21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE05B9A0-2144-4165-973E-6959E6658E21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE05B9A0-2144-4165-973E-6959E6658E21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE05B9A0-2144-4165-973E-6959E6658E21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
