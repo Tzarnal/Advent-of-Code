@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Most Recent Problem": {
+      "commandName": "Project"
+    },
+    "All Problems": {
+      "commandName": "Project",
+      "commandLineArgs": "All"
+    }
+  }
+}
