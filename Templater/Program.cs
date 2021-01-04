@@ -227,6 +227,9 @@ namespace Templater
             //Fix to enviroment .newline
             content = content.Replace("\n", Environment.NewLine);
 
+            //Trim Your Inputs
+            content = content.Trim();
+
             return content;
         }
 
