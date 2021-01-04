@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Serilog;
 using Advent;
 using RegExtract;
+using System.Text.RegularExpressions;
 
 namespace Day_08
 {
@@ -25,7 +26,21 @@ namespace Day_08
 
         public void Solve(List<string> input)
         {
-            Log.Information("A Solution Can Be Found.");
+            var totalOriginalCharacters = input.Select(i => i.Length).Sum();
+
+            var totalMemoryCharacters = 0;
+
+            foreach (var line in input)
+            {
+                var memLine = line.Replace("\\", "\\\\"); //Escaped backslash(\\)
+                memLine = memLine.Replace("\"", "\\\""); //Escaped string literal (\")
+                memLine = $"\"{memLine}\"";//Starting and Ending "
+
+                totalMemoryCharacters += memLine.Length;
+            }
+
+            Log.Information("Total original length: {orig}, memory length: {mem}. Awnser: {awnser}",
+                totalOriginalCharacters, totalMemoryCharacters, totalMemoryCharacters - totalOriginalCharacters);
         }
 
         private List<string> ParseInput(string filePath)
