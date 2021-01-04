@@ -10,8 +10,7 @@ namespace Advent
     {
         public static void Main(string[] args)
         {
-            var cli = new CLI();
-            cli.Process(args);//Exit program now if this is a Debug build. If not continue and do a benchmark
+            CLI.Process(args);//Exit program now if this is a Debug build. If not continue and do a benchmark
         }
     }
 }

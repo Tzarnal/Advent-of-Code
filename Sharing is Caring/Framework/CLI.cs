@@ -6,12 +6,35 @@ using System.Linq;
 
 namespace Advent.Framework
 {
-    public class CLI
+    public static class CLI
     {
         public static Logger DefaultLogger { get; set; }
         public static Logger IndentLogger { get; set; }
 
-        public CLI()
+        public static void Process(string[] args)
+        {
+            InitializeLoggers();
+
+            if (args.Length == 1
+                && string.Equals(args[0], "all", StringComparison.OrdinalIgnoreCase))
+            {
+                RunAll();
+            }
+            else if (args.Length == 1)
+            {
+                RunOne(args[0]);
+            }
+            else if (args.Length > 1)
+            {
+                RunMany(args);
+            }
+            else
+            {
+                NoArgs();
+            }
+        }
+
+        public static void InitializeLoggers()
         {
             const string defaultLoggerTemplate = "[{Timestamp:HH:mm:ss ffff} {Level:u3}] {Message}{NewLine}{Exception}";
             DefaultLogger = new LoggerConfiguration()
@@ -43,27 +66,6 @@ namespace Advent.Framework
             DebugLoggers();
 
             Log.Logger = DefaultLogger;
-        }
-
-        public static void Process(string[] args)
-        {
-            if (args.Length == 1
-                && string.Equals(args[0], "all", System.StringComparison.OrdinalIgnoreCase))
-            {
-                RunAll();
-            }
-            else if (args.Length == 1)
-            {
-                RunOne(args[0]);
-            }
-            else if (args.Length > 1)
-            {
-                RunMany(args);
-            }
-            else
-            {
-                NoArgs();
-            }
         }
 
         private static void RunAll()
