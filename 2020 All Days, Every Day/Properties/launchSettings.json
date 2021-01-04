@@ -1,15 +1,15 @@
 {
   "profiles": {
-    "2020 All Days, Every Day": {
+    "Most Recent Problem": {
       "commandName": "Project"
     },
-    "(All) 2020 All Days, Every Day": {
+    "All Problems": {
       "commandName": "Project",
       "commandLineArgs": "All"
     },
-    "Specific Day": {
+    "Specific Problem": {
       "commandName": "Project",
-      "commandLineArgs": "20"
+      "commandLineArgs": "01"
     }
   }
 }

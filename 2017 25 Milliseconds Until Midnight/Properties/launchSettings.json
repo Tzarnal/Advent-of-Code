@@ -6,6 +6,10 @@
     "All Problems": {
       "commandName": "Project",
       "commandLineArgs": "All"
+    },
+    "Specific Problem": {
+      "commandName": "Project",
+      "commandLineArgs": "01"
     }
   }
 }
