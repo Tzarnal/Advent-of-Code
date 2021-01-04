@@ -15,7 +15,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Framework\CLI.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)IAdventProblem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Framework\IAdventProblem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Day 00\input.txt">
