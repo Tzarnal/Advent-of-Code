@@ -1,4 +1,5 @@
 ﻿using Serilog;
+using Serilog.Core;
 using System;
 using System.Diagnostics;
 using System.Linq;
@@ -7,18 +8,18 @@ namespace Advent.Framework
 {
     public class CLI
     {
-        public static Serilog.Core.Logger DefaultLogger;
-        public static Serilog.Core.Logger IndentLogger;
+        public static Logger DefaultLogger { get; set; }
+        public static Logger IndentLogger { get; set; }
 
         public CLI()
         {
-            string defaultLoggerTemplate = "[{Timestamp:HH:mm:ss ffff} {Level:u3}] {Message}{NewLine}{Exception}";
+            const string defaultLoggerTemplate = "[{Timestamp:HH:mm:ss ffff} {Level:u3}] {Message}{NewLine}{Exception}";
             DefaultLogger = new LoggerConfiguration()
                                      .MinimumLevel.Information()
                                      .WriteTo.Console(outputTemplate: defaultLoggerTemplate)
                                      .CreateLogger();
 
-            string indentLoggerTemplate = "[{Timestamp:HH:mm:ss ffff} {Level:u3}] \t{Message}{NewLine}{Exception}";
+            const string indentLoggerTemplate = "[{Timestamp:HH:mm:ss ffff} {Level:u3}] \t{Message}{NewLine}{Exception}";
             IndentLogger = new LoggerConfiguration()
                                      .MinimumLevel.Information()
                                      .WriteTo.Console(outputTemplate: indentLoggerTemplate)
@@ -26,13 +27,13 @@ namespace Advent.Framework
             [Conditional("DEBUG")]
             static void DebugLoggers()
             {
-                string defaultLoggerTemplate = "[{Timestamp:HH:mm:ss ffff} {Level:u3}] {Message}{NewLine}{Exception}";
+                const string defaultLoggerTemplate = "[{Timestamp:HH:mm:ss ffff} {Level:u3}] {Message}{NewLine}{Exception}";
                 DefaultLogger = new LoggerConfiguration()
                                      .MinimumLevel.Verbose()
                                      .WriteTo.Console(outputTemplate: defaultLoggerTemplate)
                                      .CreateLogger();
 
-                string indentLoggerTemplate = "[{Timestamp:HH:mm:ss ffff} {Level:u3}] \t{Message}{NewLine}{Exception}";
+                const string indentLoggerTemplate = "[{Timestamp:HH:mm:ss ffff} {Level:u3}] \t{Message}{NewLine}{Exception}";
                 IndentLogger = new LoggerConfiguration()
                                          .MinimumLevel.Verbose()
                                          .WriteTo.Console(outputTemplate: indentLoggerTemplate)
@@ -44,7 +45,7 @@ namespace Advent.Framework
             Log.Logger = DefaultLogger;
         }
 
-        public void Process(string[] args)
+        public static void Process(string[] args)
         {
             if (args.Length == 1
                 && string.Equals(args[0], "all", System.StringComparison.OrdinalIgnoreCase))
@@ -65,7 +66,7 @@ namespace Advent.Framework
             }
         }
 
-        private void RunAll()
+        private static void RunAll()
         {
             var dayTypes = FindDays();
 
@@ -87,7 +88,7 @@ namespace Advent.Framework
             }
         }
 
-        private void RunMany(string[] args)
+        private static void RunMany(string[] args)
         {
             foreach (var arg in args)
             {
@@ -95,9 +96,9 @@ namespace Advent.Framework
             }
         }
 
-        private void RunOne(string dayName)
+        private static void RunOne(string dayName)
         {
-            var dayTypes = FindDays().Where(d => d.FullName.ToLower().Contains(dayName.ToLower())).ToList();
+            var dayTypes = FindDays().Where(d => d.FullName.Contains(dayName, StringComparison.OrdinalIgnoreCase)).ToList();
 
             if (dayTypes.Count == 0)
             {
@@ -114,7 +115,7 @@ namespace Advent.Framework
             }
         }
 
-        private void NoArgs()
+        private static void NoArgs()
         {
             var dayTypes = FindDays();
 
@@ -133,7 +134,7 @@ namespace Advent.Framework
             }
         }
 
-        private System.Collections.Generic.List<Type> FindDays()
+        private static System.Collections.Generic.List<Type> FindDays()
         {
             var problemInterface = typeof(IAdventProblem);
             var problems = AppDomain.CurrentDomain.GetAssemblies()

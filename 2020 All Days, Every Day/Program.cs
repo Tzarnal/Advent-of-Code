@@ -9,7 +9,7 @@ namespace Advent
         public static void Main(string[] args)
         {
             var cli = new CLI();
-            cli.Process(args);
+            CLI.Process(args);
         }
     }
 }
