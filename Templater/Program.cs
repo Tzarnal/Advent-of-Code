@@ -119,9 +119,6 @@ namespace Templater
             EditNamespace(part2File, DayName);
             EditPart(part2File, DayName, YearName, true, ProblemTitle);
 
-            var dayFile = Directory + @"AdventDay.cs";
-            EditNamespace(dayFile, DayName);
-
             AddCopyAlways(ProjectDirectory, $"Day {DayName}\\input.txt");
             AddCopyAlways(ProjectDirectory, $"Day {DayName}\\inputTest.txt");
         }
