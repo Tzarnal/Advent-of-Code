@@ -16,21 +16,16 @@ namespace Day_00
 
         public void Run()
         {
-            //var testinputList = ParseInput($"Day {Dayname}/inputTest.txt");
-            //Solve(testinputList);
+            var testinput = Part1.ParseInput($"Day {Dayname}/inputTest.txt");
+            Solve(testinput);
 
-            var inputList = ParseInput($"Day {Dayname}/input.txt");
-            Solve(inputList);
+            var input = Part1.ParseInput($"Day {Dayname}/input.txt");
+            Solve(input);
         }
 
         public void Solve(List<string> input)
         {
             Log.Information("A Solution Can Be Found.");
-        }
-
-        private List<string> ParseInput(string filePath)
-        {
-            return Helpers.ReadStringsFile(filePath);
         }
     }
 }
