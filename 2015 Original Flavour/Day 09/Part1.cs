@@ -16,96 +16,97 @@ namespace Day_09
 
         public void Run()
         {
-            var testinputList = ParseInput($"Day {Dayname}/inputTest.txt");
-            Solve(testinputList);
+            //var testinputList = ParseInput($"Day {Dayname}/inputTest.txt");
+            //Solve(testinputList);
 
             var inputList = ParseInput($"Day {Dayname}/input.txt");
             Solve(inputList);
         }
 
-        public void Solve(Dictionary<string, City> CityGraph)
+        public static void Solve(Dictionary<string, City> CityGraph)
         {
-            var cities = CityGraph.Count();
+            var cities = CityGraph.Count;
 
+            //Generate a route for every possible starting city
             var routes = CityGraph.Select(c => Travel(CityGraph, cities, c.Key));
-            var shortest = routes.OrderBy(r => r.distance).First();
 
-            Log.Information("Shortest route is {r}: {d}", shortest.route, shortest.distance);
+            //Order by route length pick the first
+            var (route, distance) = routes.OrderBy(r => r.distance).First();
+
+            Log.Information("Shortest route is {r}: {d}", route, distance);
         }
 
-        public (string route, int distance) Travel(Dictionary<string, City> CityGraph, int depth, string start)
+        public static (string route, int distance) Travel(Dictionary<string, City> CityGraph, int depth, string start)
         {
             string route = "";
             int distance = 0;
             string current = start;
 
-            route += $"{current}=>";
-            var shortestConnection = CityGraph[current].Connections.OrderBy(kvp => kvp.Value).First();
+            //First step on the route, does not actually travel a distance.
+            route += $"{current}";
+
+            //Order the connections from the current location by distance, then pick the first/shortest
+            var shortestConnection = CityGraph[current].Connections
+                .OrderBy(kvp => kvp.Value).First();
             depth--;
 
             while (depth > 0)
             {
-                shortestConnection = CityGraph[current].Connections.OrderBy(kvp => kvp.Value)
-                                                                        .Where(kvp => !route.Contains(kvp.Key))
-                                                                        .First();
+                //Order the connections from the current location by distance, then pick the first that has not yet been visted.
+                shortestConnection = CityGraph[current].Connections
+                    .OrderBy(kvp => kvp.Value)
+                    .First(kvp => !route.Contains(kvp.Key));
 
+                //Add the location to the route, add the travel distance to the total
                 distance += shortestConnection.Value;
                 current = shortestConnection.Key;
-                route += $"{current}=>";
+                route += $"=>{current}";
 
+                //Finished a step
                 depth--;
             }
-
-            route = route.Trim('>');
-            route = route.Trim('=');
 
             return (route, distance);
         }
 
-        private Dictionary<string, City> ParseInput(string filePath)
+        public static Dictionary<string, City> ParseInput(string filePath)
         {
             var CityGraph = new Dictionary<string, City>();
 
             foreach (var line in Helpers.ReadStringsFile(filePath))
             {
-                (string cityA, string cityB, int distance) connection = line.Extract<(string, string, int)>(@"(.+) to (.+) = (\d+)");
+                (string cityA, string cityB, int distance) =
+                    line.Extract<(string, string, int)>(@"(.+) to (.+) = (\d+)");
 
-                if (!CityGraph.ContainsKey(connection.cityA))
+                if (!CityGraph.ContainsKey(cityA))
                 {
-                    var newCity = new City
-                    {
-                        Name = connection.cityA
-                    };
-
-                    CityGraph.Add(connection.cityA, newCity);
+                    var newCity = new City(cityA);
+                    CityGraph.Add(cityA, newCity);
                 }
 
-                if (!CityGraph.ContainsKey(connection.cityB))
+                if (!CityGraph.ContainsKey(cityB))
                 {
-                    var newCity = new City
-                    {
-                        Name = connection.cityB
-                    };
-
-                    CityGraph.Add(connection.cityB, newCity);
+                    var newCity = new City(cityB);
+                    CityGraph.Add(cityB, newCity);
                 }
 
-                CityGraph[connection.cityA].Connections[connection.cityB] = connection.distance;
-                CityGraph[connection.cityB].Connections[connection.cityA] = connection.distance;
+                CityGraph[cityA].Connections[cityB] = distance;
+                CityGraph[cityB].Connections[cityA] = distance;
             }
 
             return CityGraph;
         }
+    }
 
-        public class City
+    public class City
+    {
+        public string Name;
+        public Dictionary<string, int> Connections;
+
+        public City(string name)
         {
-            public string Name;
-            public Dictionary<string, int> Connections;
-
-            public City()
-            {
-                Connections = new Dictionary<string, int>();
-            }
+            Connections = new Dictionary<string, int>();
+            Name = name;
         }
     }
 }
