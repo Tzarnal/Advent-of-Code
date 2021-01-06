@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Serilog;
 using Advent.Framework;
 using System;
+using System.Text.RegularExpressions;
 
 namespace Advent
 {
@@ -27,6 +28,26 @@ namespace Advent
             }
 
             return inputList;
+        }
+
+        public static List<int> ReadAllIntsStrings(string input)
+        {
+            var intsResult = Regex.Matches(input, @"(-?\d+)");
+
+            var ints = new List<int>();
+
+            foreach (Match result in intsResult)
+            {
+                ints.Add(int.Parse(result.Value));
+            }
+
+            return ints;
+        }
+
+        public static List<int> ReadAllIntsFile(string filePath)
+        {
+            var file = File.ReadAllText(filePath);
+            return ReadAllIntsStrings(file);
         }
 
         public static List<string> ReadStringsFile(string filePath)
