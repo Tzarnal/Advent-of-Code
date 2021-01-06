@@ -14,6 +14,8 @@ namespace Day_11
         private string Dayname => Helpers.GetDayFromNamespace(this);
         public string ProblemName { get => $"Day {Dayname}: Corporate Policy. Part One."; }
 
+        private static readonly string[] _InvalidCharacters = new string[] { "i", "o", "l" };
+
         public void Run()
         {
             //var testinput = ParseInput($"Day {Dayname}/inputTest.txt");
@@ -42,6 +44,21 @@ namespace Day_11
         {
             var characters = input.ToCharArray();
 
+            //Shortcut invalid characters
+            if (_InvalidCharacters.Any(c => input.Contains(c)))
+            {
+                foreach (var c in _InvalidCharacters)
+                {
+                    var oldC = c[0];
+                    char newC = oldC;
+                    newC++;
+
+                    input = input.Replace(oldC, newC);
+                }
+
+                return input;
+            }
+
             for (int i = characters.Length - 1; i >= 0; i--)
             {
                 var cursor = characters[i];
@@ -65,8 +82,8 @@ namespace Day_11
         public static bool IsValid(string Password)
         {
             //Does not contain i, o or l
-            string[] invalidCharacters = new string[] { "i", "o", "l" };
-            if (invalidCharacters.Any(c => Password.Contains(c)))
+
+            if (_InvalidCharacters.Any(c => Password.Contains(c)))
             {
                 return false;
             }
@@ -91,8 +108,6 @@ namespace Day_11
             {
                 yield return $"{alphabet[i]}{alphabet[i + 1]}{alphabet[i + 2]}";
             }
-
-            yield return "abc";
         }
 
         public static List<(char character, int count)> CountRuns(string input)
