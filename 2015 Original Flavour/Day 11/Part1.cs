@@ -79,7 +79,7 @@ namespace Day_11
             }
 
             //At least two non overlapping pairs
-            var runs = CountRuns(Password).Where(run => run.count > 1).ToList();
+            var runs = CountRuns(Password).Where(run => run.count > 1).Distinct().ToList();
             return runs.Count >= 2;
         }
 
