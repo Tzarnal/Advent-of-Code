@@ -23,7 +23,7 @@ namespace Day_13
             Solve(input);
         }
 
-        public void Solve(Dictionary<string, Dictionary<string, int>> input)
+        public static void Solve(Dictionary<string, Dictionary<string, int>> input)
         {
             var names = input.Select(d => d.Key);
             var permutations = names.GetPermutations(names.Count());
