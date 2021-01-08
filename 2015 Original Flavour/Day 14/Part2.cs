@@ -1,5 +1,3 @@
-using System;
-using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 using Serilog;
@@ -23,11 +21,8 @@ namespace Day_14
             Solve(input, 2503);
         }
 
-        public void Solve(List<Racer> Racers, int RaceDuration = 1000)
+        public static void Solve(List<Racer> Racers, int RaceDuration = 1000)
         {
-            var results = new Dictionary<string, int>();
-            var points = new Dictionary<string, int>();
-
             for (int i = 0; i < RaceDuration; i++)
             {
                 foreach (var racer in Racers)

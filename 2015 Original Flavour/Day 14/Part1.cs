@@ -1,5 +1,3 @@
-using System;
-using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 using Serilog;
@@ -23,14 +21,14 @@ namespace Day_14
             Solve(input, 2503);
         }
 
-        public void Solve(List<(string Name, int speed, int duration, int pause)> input, int RaceDuration = 1000)
+        public static void Solve(List<(string Name, int speed, int duration, int pause)> input, int RaceDuration = 1000)
         {
             var results = new Dictionary<string, int>();
 
-            foreach (var racer in input)
+            foreach (var (Name, speed, duration, pause) in input)
             {
-                var raceTime = racer.duration;
-                var restingTime = racer.pause;
+                var raceTime = duration;
+                var restingTime = pause;
                 var resting = false;
                 var distance = 0;
 
@@ -42,27 +40,27 @@ namespace Day_14
                         if (restingTime <= 0)
                         {
                             resting = false;
-                            restingTime = racer.pause;
+                            restingTime = pause;
                         }
                     }
                     else
                     {
-                        distance += racer.speed;
+                        distance += speed;
                         raceTime--;
                         if (raceTime <= 0)
                         {
                             resting = true;
-                            raceTime = racer.duration;
+                            raceTime = duration;
                         }
                     }
                 }
 
-                results.Add(racer.Name, distance);
+                results.Add(Name, distance);
             }
 
             var furthest = results.OrderByDescending(r => r.Value).First();
-
-            Log.Information("The fastest Reindeer was {n} who scored {d}", furthest.Key, furthest.Value);
+            Log.Information("The fastest Reindeer was {n} who scored {d}",
+                furthest.Key, furthest.Value);
         }
 
         public static List<(string Name, int speed, int duration, int pause)> ParseInput(string filePath)
