@@ -83,15 +83,5 @@ namespace Advent
 
             return day;
         }
-
-        public static void ProblemRunner(IAdventProblem problem)
-        {
-            Console.WriteLine();
-            Log.Information("Running {ProblemName}", problem.ProblemName);
-            Log.Logger = CLI.IndentLogger;
-            problem.Run();
-
-            Log.Logger = CLI.DefaultLogger;
-        }
     }
 }

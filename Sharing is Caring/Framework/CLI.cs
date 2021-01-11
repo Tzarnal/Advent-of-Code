@@ -85,7 +85,7 @@ namespace Advent.Framework
                 foreach (var problem in day)
                 {
                     var part = (IAdventProblem)Activator.CreateInstance(problem);
-                    Helpers.ProblemRunner(part);
+                    ProblemRunner(part);
                 }
             }
         }
@@ -113,7 +113,7 @@ namespace Advent.Framework
             foreach (var problem in groupedDays.Last())
             {
                 var part = (IAdventProblem)Activator.CreateInstance(problem);
-                Helpers.ProblemRunner(part);
+                ProblemRunner(part);
             }
         }
 
@@ -132,7 +132,7 @@ namespace Advent.Framework
             foreach (var problem in groupedDays.Last())
             {
                 var part = (IAdventProblem)Activator.CreateInstance(problem);
-                Helpers.ProblemRunner(part);
+                ProblemRunner(part);
             }
         }
 
@@ -145,6 +145,16 @@ namespace Advent.Framework
                             .OrderBy(p => p.FullName);
 
             return problems.ToList();
+        }
+
+        public static void ProblemRunner(IAdventProblem problem)
+        {
+            Console.WriteLine();
+            Log.Information("Running {ProblemName}", problem.ProblemName);
+            Log.Logger = IndentLogger;
+            problem.Run();
+
+            Log.Logger = DefaultLogger;
         }
     }
 }
