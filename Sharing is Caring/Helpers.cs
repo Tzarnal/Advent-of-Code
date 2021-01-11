@@ -4,6 +4,7 @@ using Serilog;
 using Advent.Framework;
 using System;
 using System.Text.RegularExpressions;
+using System.Linq;
 
 namespace Advent
 {
@@ -55,6 +56,23 @@ namespace Advent
             var inputFile = File.ReadAllLines(filePath);
 
             return new List<string>(inputFile);
+        }
+
+        public static IEnumerable<int[]> PartitionIntoPossibleParts(int Total, int Parts)
+        {
+            if (Parts == 1)
+            {
+                yield return new int[] { Total };
+                yield break;
+            }
+
+            for (var i = 0; i <= Total; i++)
+            {
+                foreach (var Remainder in PartitionIntoPossibleParts(Total - i, Parts - 1))
+                {
+                    yield return Remainder.Select(x => x).Append(i).ToArray();
+                }
+            }
         }
 
         public static string GetDayFromNamespace(object o)
