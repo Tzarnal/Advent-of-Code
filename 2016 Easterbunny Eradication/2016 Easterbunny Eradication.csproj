@@ -9,9 +9,23 @@
   <Import Project="..\Sharing is Caring\Sharing is Caring.projitems" Label="Shared" />
 
   <ItemGroup>
+    <None Remove="Day 01\input.txt" />
+    <None Remove="Day 01\inputTest.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Day 01\input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Day 01\inputTest.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="RegExtract" Version="1.0.17" />
     <PackageReference Include="Serilog" Version="2.10.0" />
-    <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="4.0.1" />
   </ItemGroup>
 
 </Project>

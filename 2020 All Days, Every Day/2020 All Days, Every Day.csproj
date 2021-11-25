@@ -117,9 +117,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="RegExtract" Version="0.9.17" />
+    <PackageReference Include="RegExtract" Version="1.0.17" />
     <PackageReference Include="Serilog" Version="2.10.0" />
-    <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="4.0.1" />
     <PackageReference Include="System.Collections" Version="4.3.0" />
   </ItemGroup>
 
