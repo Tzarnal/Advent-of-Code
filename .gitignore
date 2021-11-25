@@ -25,6 +25,8 @@ App_Data/
 *.png
 *.kra*
 
+.vs
+
 Templater/session.txt
 
 2020 All Days, Every Day/out.txt
