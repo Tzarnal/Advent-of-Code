@@ -6,7 +6,7 @@ using Serilog;
 using Advent;
 using RegExtract;
 
-namespace Day_2
+namespace Day_02
 {
     //https://adventofcode.com/2016/day/2#part2
     public class Part2 : IAdventProblem
@@ -16,8 +16,8 @@ namespace Day_2
 
         public void Run()
         {
-            var testinput = Part1.ParseInput($"Day {Dayname}/inputTest.txt");
-            Solve(testinput);
+            //var testinput = Part1.ParseInput($"Day {Dayname}/inputTest.txt");
+            //Solve(testinput);
 
             var input = Part1.ParseInput($"Day {Dayname}/input.txt");
             Solve(input);

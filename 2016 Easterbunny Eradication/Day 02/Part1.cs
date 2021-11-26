@@ -6,7 +6,7 @@ using Serilog;
 using Advent;
 using RegExtract;
 
-namespace Day_2
+namespace Day_02
 {
     //https://adventofcode.com/2016/day/2
     public class Part1 : IAdventProblem
