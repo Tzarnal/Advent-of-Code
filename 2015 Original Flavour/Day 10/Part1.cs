@@ -6,7 +6,7 @@ using Serilog;
 using Advent;
 using RegExtract;
 
-namespace Day_00
+namespace Day_10
 {
     //Problem URL
     public class Part1 : IAdventProblem
