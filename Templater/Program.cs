@@ -16,6 +16,7 @@ namespace Templater
             if (args.Length < 2)
             {
                 Console.WriteLine("Needs two arguments, year and day.");
+                return;
             }
 
             var year = args[0].Trim().ToLower();
