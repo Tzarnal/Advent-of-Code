@@ -9,6 +9,8 @@
   <Import Project="..\Sharing is Caring\Sharing is Caring.projitems" Label="Shared" />
 
   <ItemGroup>
+        <Content Include="Day 04\inputTest.txt"><CopyToOutputDirectory>Always</CopyToOutputDirectory></Content>
+        <Content Include="Day 04\input.txt"><CopyToOutputDirectory>Always</CopyToOutputDirectory></Content>
         <Content Include="Day 03\inputTest.txt"><CopyToOutputDirectory>Always</CopyToOutputDirectory></Content>
         <Content Include="Day 03\input.txt"><CopyToOutputDirectory>Always</CopyToOutputDirectory></Content>
         <Content Include="Day 02\inputTest.txt"><CopyToOutputDirectory>Always</CopyToOutputDirectory></Content>
