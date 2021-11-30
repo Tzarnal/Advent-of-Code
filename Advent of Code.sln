@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30717.126
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2020 All Days, Every Day", "2020 All Days, Every Day\2020 All Days, Every Day.csproj", "{B128AB6D-00B4-458B-944E-C90D452EBB36}"
 EndProject
@@ -11,13 +11,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2015 Original Flavour", "20
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Templater", "Templater\Templater.csproj", "{831DC9A3-CDA0-46F8-B4D2-4384F8C7974C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2016 Easterbunny Eradication", "2016 Easterbunny Eradication\2016 Easterbunny Eradication.csproj", "{EE05B9A0-2144-4165-973E-6959E6658E21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2016 Easterbunny Eradication", "2016 Easterbunny Eradication\2016 Easterbunny Eradication.csproj", "{EE05B9A0-2144-4165-973E-6959E6658E21}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2017 25 Milliseconds Until Midnight", "2017 25 Milliseconds Until Midnight\2017 25 Milliseconds Until Midnight.csproj", "{28158CA6-1E64-43F1-9BCD-0DF000369DA9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2018 Now With Time Travel", "2018 Now With Time Travel\2018 Now With Time Travel.csproj", "{44BCE1CA-B4EE-43EE-8B2F-7E2B5E4543E3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2019 Iiiint Cooode", "2019 Iiiint Cooode\2019 Iiiint Cooode.csproj", "{3BE6A637-DBE7-46AF-A83A-B75FCA9325BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2021 Now With Tea", "2021 Now With Tea\2021 Now With Tea.csproj", "{B2BEBFA7-5942-4D75-86FB-F0482B2EA73E}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -27,6 +29,7 @@ Global
 		Sharing is Caring\Sharing is Caring.projitems*{3be6a637-dbe7-46af-a83a-b75fca9325bb}*SharedItemsImports = 5
 		Sharing is Caring\Sharing is Caring.projitems*{44bce1ca-b4ee-43ee-8b2f-7e2b5e4543e3}*SharedItemsImports = 5
 		Sharing is Caring\Sharing is Caring.projitems*{b128ab6d-00b4-458b-944e-c90d452ebb36}*SharedItemsImports = 5
+		Sharing is Caring\Sharing is Caring.projitems*{b2bebfa7-5942-4d75-86fb-f0482b2ea73e}*SharedItemsImports = 5
 		Sharing is Caring\Sharing is Caring.projitems*{ee05b9a0-2144-4165-973e-6959e6658e21}*SharedItemsImports = 5
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -62,6 +65,10 @@ Global
 		{3BE6A637-DBE7-46AF-A83A-B75FCA9325BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BE6A637-DBE7-46AF-A83A-B75FCA9325BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BE6A637-DBE7-46AF-A83A-B75FCA9325BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2BEBFA7-5942-4D75-86FB-F0482B2EA73E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2BEBFA7-5942-4D75-86FB-F0482B2EA73E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2BEBFA7-5942-4D75-86FB-F0482B2EA73E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2BEBFA7-5942-4D75-86FB-F0482B2EA73E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
