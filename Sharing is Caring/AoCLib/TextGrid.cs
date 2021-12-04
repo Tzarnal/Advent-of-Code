@@ -30,6 +30,26 @@ namespace Advent
             UpLeft
         };
 
+        public TextGrid(List<string> Data, string Split)
+        {
+            var t = Data[0].Split(Split);
+            var width = Data[0].Split(Split).Length;
+
+            var grid = new String[Data.Count, width];
+
+            for (int x = 0; x < Data.Count; x++)
+            {
+                var splitData = Data[x].Split(Split);
+
+                for (int y = 0; y < width; y++)
+                {
+                    grid[x, y] = splitData[y].ToString();
+                }
+            }
+
+            Grid = grid;
+        }
+
         public TextGrid(List<string> Data)
         {
             var width = Data[0].Length;
@@ -300,6 +320,18 @@ namespace Advent
         public void ConsolePrint()
         {
             Console.WriteLine(ToString());
+        }
+
+        public void ReplaceAllofValue(string OldValue, string NewValue)
+        {
+            for (var x = 0; x < this.Grid.GetLength(0); x++)
+            {
+                for (var y = 0; y < this.Grid.GetLength(1); y++)
+                {
+                    if (Grid[x, y] == OldValue)
+                        Grid[x, y] = NewValue;
+                }
+            }
         }
 
         public override string ToString()
