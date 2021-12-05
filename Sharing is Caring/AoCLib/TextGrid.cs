@@ -66,6 +66,21 @@ namespace Advent
             Grid = grid;
         }
 
+        public TextGrid(int DimensionX, int DimensionY, string DefaultValue = ".")
+        {
+            var grid = new String[DimensionX, DimensionY];
+
+            for (int x = 0; x < DimensionX; x++)
+            {
+                for (int y = 0; y < DimensionY; y++)
+                {
+                    grid[x, y] = DefaultValue;
+                }
+            }
+
+            Grid = grid;
+        }
+
         public TextGrid(TextGrid inputGrid)
         {
             Grid = new String[inputGrid.Grid.GetLength(0),
@@ -220,9 +235,38 @@ namespace Advent
             }
         }
 
+        public IEnumerable<string> CellsAlongPath(int x, int y, (int x, int y) Path, int PathLength)
+        {
+            var aX = x;
+            var aY = y;
+
+            while (PathLength >= 0)
+            {
+                if (aX >= Grid.GetLength(0)
+                    || aY >= Grid.GetLength(1)
+                    || aX < 0
+                    || aY < 0)
+                {
+                    yield break;
+                }
+
+                yield return this[aX, aY];
+
+                aX += Path.x;
+                aY += Path.y;
+
+                PathLength--;
+            }
+        }
+
         public string StringAlongPath(int x, int y, (int x, int y) Path)
         {
             return string.Join("", CellsAlongPath(x, y, Path));
+        }
+
+        public string StringAlongPath(int x, int y, (int x, int y) Path, int PathLength)
+        {
+            return string.Join("", CellsAlongPath(x, y, Path, PathLength));
         }
 
         public Dictionary<string, string> Edges()
@@ -320,6 +364,57 @@ namespace Advent
         public void ConsolePrint()
         {
             Console.WriteLine(ToString());
+        }
+
+        public void ReplaceValueAlongPath(string OldValue, string NewValue, int x, int y, (int x, int y) Path)
+        {
+            var aX = x;
+            var aY = y;
+
+            while (true)
+            {
+                if (aX >= Grid.GetLength(0)
+                    || aY >= Grid.GetLength(1)
+                    || aX < 0
+                    || aY < 0)
+                {
+                    break;
+                }
+
+                if (this[aX, aY] == OldValue)
+                {
+                    this[aX, aY] = NewValue;
+                }
+
+                aX += Path.x;
+                aY += Path.y;
+            }
+        }
+
+        public void ReplaceValueAlongPath(string OldValue, string NewValue, int x, int y, (int x, int y) Path, int PathLength)
+        {
+            var aX = x;
+            var aY = y;
+
+            while (PathLength >= 0)
+            {
+                if (aX >= Grid.GetLength(0)
+                    || aY >= Grid.GetLength(1)
+                    || aX < 0
+                    || aY < 0)
+                {
+                    break;
+                }
+
+                if (this[aX, aY] == OldValue)
+                {
+                    this[aX, aY] = NewValue;
+                }
+
+                aX += Path.x;
+                aY += Path.y;
+                PathLength--;
+            }
         }
 
         public void ReplaceAllofValue(string OldValue, string NewValue)
