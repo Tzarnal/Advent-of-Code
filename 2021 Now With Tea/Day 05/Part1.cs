@@ -48,7 +48,7 @@ namespace Day_05
                         grid.ReplaceValueAlongPath(".", "1", line.End.Y, line.End.X, TextGrid.Up, Math.Abs(distance));
                     }
                 }
-                //Vertical line
+                //Horizontal line
                 else if (line.Start.Y == line.End.Y)
                 {
                     var distance = line.Start.X - line.End.X;
@@ -67,8 +67,6 @@ namespace Day_05
                     }
                 }
             }
-
-            grid.ConsolePrint();
 
             Log.Information("Two lines overlap in {count} points.",
                 grid.CountInGrid("2"));
