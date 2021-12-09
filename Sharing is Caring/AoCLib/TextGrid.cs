@@ -18,7 +18,7 @@ namespace Advent
         public static readonly (int x, int y) UpRight = (-1, 1);
         public static readonly (int x, int y) UpLeft = (-1, -1);
 
-        public static readonly List<(int x, int y)> AdjacentDirections =
+        public List<(int x, int y)> AdjacentDirections =
         new List<(int x, int y)> {
             Right,
             Left,
@@ -172,6 +172,25 @@ namespace Advent
             return output;
         }
 
+        public IEnumerable<(string value, int x, int y)> AdjacentCellsEnumerate(int x, int y)
+        {
+            foreach (var direction in AdjacentDirections)
+            {
+                var aX = x + direction.x;
+                var aY = y + direction.y;
+
+                if (aX >= Grid.GetLength(0)
+                    || aY >= Grid.GetLength(1)
+                    || aX < 0
+                    || aY < 0)
+                {
+                    continue;
+                }
+
+                yield return (this[aX, aY], aX, aY);
+            }
+        }
+
         public Dictionary<(int x, int y), string> AdjacentCellsDict(int x, int y)
         {
             var output = new Dictionary<(int x, int y), string>();
@@ -211,6 +230,17 @@ namespace Advent
             }
 
             return count;
+        }
+
+        public IEnumerable<(string value, int x, int y)> AllCells()
+        {
+            for (var x = 0; x < Grid.GetLength(0); x++)
+            {
+                for (var y = 0; y < Grid.GetLength(1); y++)
+                {
+                    yield return (this[x, y], x, y);
+                }
+            }
         }
 
         public IEnumerable<string> CellsAlongPath(int x, int y, (int x, int y) Path)
