@@ -9,6 +9,7 @@
     <Import_RootNamespace>Advent</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AoCLib\Grid.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AoCLib\TextGrid.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Day 00\Part1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Day 00\Part2.cs" />
