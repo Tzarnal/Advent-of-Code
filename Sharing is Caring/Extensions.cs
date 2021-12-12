@@ -54,6 +54,32 @@ namespace Advent
             return new String(array);
         }
 
+        public static bool IsUpper(this string input)
+        {
+            foreach (var c in input)
+            {
+                if (char.IsLetter(c) && char.IsLower(c))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public static bool IsLower(this string input)
+        {
+            foreach (var c in input)
+            {
+                if (char.IsLetter(c) && char.IsUpper(c))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
         public static IEnumerable<IEnumerable<T>> GetPermutations<T>(this IEnumerable<T> list, int length)
         {
             if (length == 1)
