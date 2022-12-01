@@ -237,6 +237,7 @@ namespace Templater
             var wc = new WebClient();
 
             wc.Headers.Add(HttpRequestHeader.Cookie, $"session={Session}");
+            wc.Headers.Add(HttpRequestHeader.UserAgent, "https://github.com/Tzarnal/Advent-of-Code by s.oudenaarden@gmail.com");
             string content = wc.DownloadString(url);
 
             var titleRegex = @"--- Day \d+: (.+) ---";
