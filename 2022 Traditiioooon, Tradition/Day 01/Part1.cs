@@ -43,6 +43,16 @@ namespace Day_01
 
         public static List<List<int>> ParseInput(string filePath)
         {
+            /*var d = File.ReadAllText(filePath).Split($"{Environment.NewLine}{Environment.NewLine}")
+                .Select(l => l.Split(Environment.NewLine))
+                .Select(i => i.Sum(n => int.Parse(n)))
+                .OrderDescending()
+                .Take(3)
+                .Sum();
+
+            Log.Information("{d}",d);*/
+
+
             return Helpers.ReadAllRecordsInt(filePath);
         }
     }
