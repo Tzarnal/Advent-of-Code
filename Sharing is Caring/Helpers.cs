@@ -58,6 +58,44 @@ namespace Advent
             return new List<string>(inputFile);
         }
 
+        public static List<List<string>> ReadAllRecords(string filePath)
+        {
+            var inputFile = File.ReadAllText(filePath);
+
+            var chunks = inputFile.Split($"{Environment.NewLine}{Environment.NewLine}");
+
+            var records = new List<List<string>>();
+            foreach (var chunk in chunks)
+            {
+                var record = new List<string>();
+                foreach(var line in chunk.Split(Environment.NewLine))
+                {
+                    record.Add(line);
+                }
+                records.Add(record);
+            }
+            return records;
+        }
+
+        public static List<List<int>> ReadAllRecordsInt(string filePath)
+        {
+            var inputFile = File.ReadAllText(filePath);
+
+            var chunks = inputFile.Split($"{Environment.NewLine}{Environment.NewLine}");
+
+            var records = new List<List<int>>();
+            foreach (var chunk in chunks)
+            {
+                var record = new List<int>();
+                foreach (var line in chunk.Split(Environment.NewLine))
+                {
+                    record.Add(int.Parse(line));
+                }
+                records.Add(record);
+            }
+            return records;
+        }
+
         public static IEnumerable<int[]> PartitionIntoPossibleParts(int Total, int Parts)
         {
             if (Parts == 1)

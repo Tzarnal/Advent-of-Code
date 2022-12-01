@@ -43,25 +43,7 @@ namespace Day_01
 
         public static List<List<int>> ParseInput(string filePath)
         {
-            var fileData = File.ReadAllText(filePath);
-            var fileChunks = fileData.Split("\r\n\r\n");
-
-            var output = new List<List<int>>();
-
-            foreach(var chunk in fileChunks)
-            {
-                var lines = chunk.Split("\r\n");
-                var inventory = new List<int>();
-
-                foreach( var line in lines)
-                {
-                    inventory.Add(int.Parse(line));
-                }
-
-                output.Add(inventory);
-            }
-
-            return output;
+            return Helpers.ReadAllRecordsInt(filePath);
         }
     }
 }
