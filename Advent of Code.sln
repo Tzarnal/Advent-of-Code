@@ -19,19 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2018 Now With Time Travel",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2019 Iiiint Cooode", "2019 Iiiint Cooode\2019 Iiiint Cooode.csproj", "{3BE6A637-DBE7-46AF-A83A-B75FCA9325BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2021 Now With Tea", "2021 Now With Tea\2021 Now With Tea.csproj", "{B2BEBFA7-5942-4D75-86FB-F0482B2EA73E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2021 Now With Tea", "2021 Now With Tea\2021 Now With Tea.csproj", "{B2BEBFA7-5942-4D75-86FB-F0482B2EA73E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2022 Traditiioooon, Tradition", "2022 Traditiioooon, Tradition\2022 Traditiioooon, Tradition.csproj", "{7C500F31-6AF2-4E06-A7F3-C1A1BF20E2A9}"
 EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		Sharing is Caring\Sharing is Caring.projitems*{0243abeb-030f-41a8-9817-b2a6d8504de3}*SharedItemsImports = 5
-		Sharing is Caring\Sharing is Caring.projitems*{1ec9148c-2acc-413a-8087-a38d7380ffab}*SharedItemsImports = 13
-		Sharing is Caring\Sharing is Caring.projitems*{28158ca6-1e64-43f1-9bcd-0df000369da9}*SharedItemsImports = 5
-		Sharing is Caring\Sharing is Caring.projitems*{3be6a637-dbe7-46af-a83a-b75fca9325bb}*SharedItemsImports = 5
-		Sharing is Caring\Sharing is Caring.projitems*{44bce1ca-b4ee-43ee-8b2f-7e2b5e4543e3}*SharedItemsImports = 5
-		Sharing is Caring\Sharing is Caring.projitems*{b128ab6d-00b4-458b-944e-c90d452ebb36}*SharedItemsImports = 5
-		Sharing is Caring\Sharing is Caring.projitems*{b2bebfa7-5942-4d75-86fb-f0482b2ea73e}*SharedItemsImports = 5
-		Sharing is Caring\Sharing is Caring.projitems*{ee05b9a0-2144-4165-973e-6959e6658e21}*SharedItemsImports = 5
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -69,11 +61,26 @@ Global
 		{B2BEBFA7-5942-4D75-86FB-F0482B2EA73E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2BEBFA7-5942-4D75-86FB-F0482B2EA73E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2BEBFA7-5942-4D75-86FB-F0482B2EA73E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C500F31-6AF2-4E06-A7F3-C1A1BF20E2A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C500F31-6AF2-4E06-A7F3-C1A1BF20E2A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C500F31-6AF2-4E06-A7F3-C1A1BF20E2A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C500F31-6AF2-4E06-A7F3-C1A1BF20E2A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FDA9B4AE-9A9F-42FA-8BF1-2064D94A70C1}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Sharing is Caring\Sharing is Caring.projitems*{0243abeb-030f-41a8-9817-b2a6d8504de3}*SharedItemsImports = 5
+		Sharing is Caring\Sharing is Caring.projitems*{1ec9148c-2acc-413a-8087-a38d7380ffab}*SharedItemsImports = 13
+		Sharing is Caring\Sharing is Caring.projitems*{28158ca6-1e64-43f1-9bcd-0df000369da9}*SharedItemsImports = 5
+		Sharing is Caring\Sharing is Caring.projitems*{3be6a637-dbe7-46af-a83a-b75fca9325bb}*SharedItemsImports = 5
+		Sharing is Caring\Sharing is Caring.projitems*{44bce1ca-b4ee-43ee-8b2f-7e2b5e4543e3}*SharedItemsImports = 5
+		Sharing is Caring\Sharing is Caring.projitems*{7c500f31-6af2-4e06-a7f3-c1a1bf20e2a9}*SharedItemsImports = 5
+		Sharing is Caring\Sharing is Caring.projitems*{b128ab6d-00b4-458b-944e-c90d452ebb36}*SharedItemsImports = 5
+		Sharing is Caring\Sharing is Caring.projitems*{b2bebfa7-5942-4d75-86fb-f0482b2ea73e}*SharedItemsImports = 5
+		Sharing is Caring\Sharing is Caring.projitems*{ee05b9a0-2144-4165-973e-6959e6658e21}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal
