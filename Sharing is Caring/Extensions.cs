@@ -67,6 +67,40 @@ namespace Advent
             return true;
         }
 
+        public static (string left, string right) CutInHalf(this string input)
+        {
+            var half = input.Length / 2;
+            var l = input[..half];
+            var r = input[half..];
+            
+            return (l,r);
+        }
+
+        public static void Increment(this Dictionary<string,int> input, string key)
+        {
+            if(input.ContainsKey(key))
+            {
+                input[key]++;
+            }
+            else
+            {
+                input[key] = 1;
+            }
+        }
+
+        public static void Increment(this Dictionary<char, int> input, char key)
+        {
+            if (input.ContainsKey(key))
+            {
+                input[key]++;
+            }
+            else
+            {
+                input[key] = 1;
+            }
+        }
+
+
         public static bool IsLower(this string input)
         {
             foreach (var c in input)
