@@ -28,6 +28,18 @@ namespace Advent
             return text.Substring(0, pos) + replace + text.Substring(pos + search.Length);
         }
 
+        public static Stack<T> Invert<T>(this Stack<T> input)
+        {
+            var output =  new Stack<T>();
+
+            while(input.Count > 0)
+            {
+                output.Push(input.Pop());
+            }
+
+            return output;
+        }
+
         public static void Shuffle<T>(this IList<T> list)
         {
             int n = list.Count;
