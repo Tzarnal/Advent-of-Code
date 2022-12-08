@@ -1,10 +1,5 @@
-using System;
-using System.IO;
-using System.Linq;
-using System.Collections.Generic;
-using Serilog;
 using Advent;
-using RegExtract;
+using Serilog;
 
 namespace Day_07
 {
@@ -93,7 +88,6 @@ namespace Day_07
                         files.Add(
                             new ElfFile(fileChunks[1], size, currentDir));
                         break;
-
                 }
             }
 
@@ -143,7 +137,6 @@ namespace Day_07
             var rootSize = directorySizes.First(d => d.dir.root == true).size;
 
             var sizeToDelete = requiredDiskSpace - (totalDiskSpace - rootSize);
-
 
             var candidateDirs = directorySizes.Where(d => d.size >= sizeToDelete);
             var candidate = candidateDirs.OrderBy(d => d.size).First();
