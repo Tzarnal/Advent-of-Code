@@ -1,7 +1,7 @@
 using Advent;
 using Serilog;
 
-namespace Day_8
+namespace Day_08
 {
     //https://adventofcode.com/2022/day/8#part2
     public class Part2 : IAdventProblem
