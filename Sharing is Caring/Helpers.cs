@@ -68,7 +68,7 @@ namespace Advent
             foreach (var chunk in chunks)
             {
                 var record = new List<string>();
-                foreach(var line in chunk.Split(Environment.NewLine))
+                foreach (var line in chunk.Split(Environment.NewLine))
                 {
                     record.Add(line);
                 }
@@ -111,6 +111,14 @@ namespace Advent
                     yield return Remainder.Select(x => x).Append(i).ToArray();
                 }
             }
+        }
+
+        public static string ClearGridString(string gridString)
+        {
+            gridString = gridString.Replace(".", "░");
+            gridString = gridString.Replace("#", "▓");
+
+            return gridString;
         }
 
         public static string GetDayFromNamespace(object o)

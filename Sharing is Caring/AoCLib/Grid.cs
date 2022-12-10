@@ -387,6 +387,11 @@ namespace Advent
             Console.WriteLine(ToString());
         }
 
+        public void ConsoleClearPrint()
+        {
+            Console.WriteLine(Helpers.ClearGridString(ToString()));
+        }
+
         public void ReplaceValueAlongPath(T OldValue, T NewValue, int x, int y, (int x, int y) Path)
         {
             var aX = x;

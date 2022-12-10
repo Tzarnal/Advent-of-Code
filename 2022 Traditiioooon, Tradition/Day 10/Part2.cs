@@ -65,7 +65,7 @@ namespace Day_10
                 //Handle displaying line
                 if(cycle % 40 == 0)
                 {
-                    Log.Verbose(crtLine);
+                    Log.Verbose(Helpers.ClearGridString( crtLine));                    
                     crtLine = "";
                 }
 
