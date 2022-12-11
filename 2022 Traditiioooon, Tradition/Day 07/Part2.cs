@@ -11,8 +11,8 @@ namespace Day_07
 
         public void Run()
         {
-            var testinput = Part1.ParseInput($"Day {Dayname}/inputTest.txt");
-            Solve(testinput);
+            //var testinput = Part1.ParseInput($"Day {Dayname}/inputTest.txt");
+            //Solve(testinput);
 
             var input = Part1.ParseInput($"Day {Dayname}/input.txt");
             Solve(input);
