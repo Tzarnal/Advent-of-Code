@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using System.IO;
+using Advent.AoCLib;
 
 namespace Advent
 {
@@ -392,6 +394,16 @@ namespace Advent
             Console.WriteLine(Helpers.ClearGridString(ToString()));
         }
 
+        public void FilePrint(string filePath)
+        {
+            File.WriteAllText(filePath, ToString());
+        }
+
+        public void FileClearPrint(string filePath)
+        {
+            File.WriteAllText(filePath, Helpers.ClearGridString(ToString()));
+        }
+
         public void ReplaceValueAlongPath(T OldValue, T NewValue, int x, int y, (int x, int y) Path)
         {
             var aX = x;
@@ -503,6 +515,13 @@ namespace Advent
             get { return InternalGrid[x, y]; }
 
             set { InternalGrid[x, y] = value; }
+        }
+
+        public T this[IntVector2 point]
+        {
+            get { return InternalGrid[point.X, point.Y]; }
+
+            set { InternalGrid[point.X, point.Y] = value; }
         }
     }
 }
