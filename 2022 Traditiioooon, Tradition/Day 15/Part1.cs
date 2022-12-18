@@ -6,7 +6,7 @@ using Serilog;
 using Advent;
 using RegExtract;
 using Advent.AoCLib;
-using System.Runtime.Intrinsics.X86;
+
 
 namespace Day_15
 {
