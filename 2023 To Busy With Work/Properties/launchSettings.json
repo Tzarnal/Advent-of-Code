@@ -3,6 +3,10 @@
     "Most Recent Problem": {
       "commandName": "Project"
     },
+    "WSL": {
+      "commandName": "WSL2",
+      "distributionName": ""
+    },
     "All Problems": {
       "commandName": "Project",
       "commandLineArgs": "All"

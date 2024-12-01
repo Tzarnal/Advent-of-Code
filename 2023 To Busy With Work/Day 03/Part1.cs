@@ -16,21 +16,68 @@ namespace Day_03
 
         public void Run()
         {
-            var testinput = ParseInput($"Day {Dayname}/inputTest.txt");
-            Solve(testinput);
+            //var testinput = ParseInput($"Day {Dayname}/inputTest.txt");
+            //Solve(testinput);
 
             var input = ParseInput($"Day {Dayname}/input.txt");
             Solve(input);
         }
 
-        public void Solve(List<string> input)
+        public void Solve(TextGrid Grid)
         {
-            Log.Information("A Solution Can Be Found.");
+            var validParts = new List<int>();
+
+            var currentNr = "";
+            var isValidPart = false;
+
+            for (var x = 0; x < Grid.Width; x++)
+            {
+                for (var y = 0; y < Grid.Heigth; y++)
+                {
+                    var cell = Grid[x, y];
+
+                    if (Helpers.IsSymbols(cell))
+                    {
+                        if (isValidPart)
+                        {
+                            validParts.Add(int.Parse(currentNr));
+                        }
+
+                        currentNr = "";
+                        isValidPart = false;
+                    }
+
+                    if (Helpers.IsDigits(cell))
+                    {
+                        currentNr += cell;
+                        var adjacent = Grid.AdjacentCellsList(x, y);
+                        var adjacentString = Helpers.StringEnumerableToString(adjacent).Replace(".", "");
+
+                        if (Helpers.HasSymbols(adjacentString))
+                        {
+                            isValidPart = true;
+                        }
+                    }
+                }
+
+                if (isValidPart)
+                {
+                    validParts.Add(int.Parse(currentNr));
+                }
+
+                currentNr = "";
+                isValidPart = false;
+            }
+
+            var partSum = validParts.Sum();
+
+            Log.Information("There are {count} parts with a sum of {sum}.", validParts.Count, partSum);
         }
 
-        public static List<string> ParseInput(string filePath)
+        public static TextGrid ParseInput(string filePath)
         {
-            return Helpers.ReadStringsFile(filePath);
+            var grid = new TextGrid(File.ReadAllLines(filePath).ToList());
+            return grid;
         }
     }
 }

@@ -8,6 +8,8 @@ namespace Advent
     public class TextGrid
     {
         public String[,] Grid;
+        public int Width => Grid.GetLength(1);
+        public int Heigth => Grid.GetLength(0);
 
         public static readonly (int x, int y) Right = (0, 1);
         public static readonly (int x, int y) Left = (0, -1);
@@ -239,6 +241,20 @@ namespace Advent
                 for (var y = 0; y < Grid.GetLength(1); y++)
                 {
                     yield return (this[x, y], x, y);
+                }
+            }
+        }
+
+        public IEnumerable<(string value, int x, int y)> FindString(string needle)
+        {
+            for (var x = 0; x < Grid.GetLength(0); x++)
+            {
+                for (var y = 0; y < Grid.GetLength(1); y++)
+                {
+                    if (this[x, y] == needle)
+                    {
+                        yield return (this[x, y], x, y);
+                    }
                 }
             }
         }
@@ -500,6 +516,14 @@ namespace Advent
             }
 
             return true;
+        }
+
+        public string this[int x]
+        {
+            get
+            {
+                return StringAlongPath(x, 0, Right);
+            }
         }
 
         public String this[int x, int y]

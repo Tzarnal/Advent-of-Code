@@ -5,6 +5,7 @@ using Advent.Framework;
 using System;
 using System.Text.RegularExpressions;
 using System.Linq;
+using Serilog.Formatting.Display;
 
 namespace Advent
 {
@@ -152,6 +153,94 @@ namespace Advent
             var day = nameSpace.Split('_')[1].Trim();
 
             return day;
+        }
+
+        public static string StringEnumerableToString(List<string> input)
+        {
+            string output = "";
+            foreach (var item in input)
+            {
+                output += item;
+            }
+            return output;
+        }
+
+        public static bool IsLetters(string s)
+        {
+            foreach (char c in s)
+            {
+                if (!char.IsLetter(c))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public static bool HasLetters(string s)
+        {
+            foreach (char c in s)
+            {
+                if (char.IsLetter(c))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public static bool IsDigits(string s)
+        {
+            foreach (char c in s)
+            {
+                if (!char.IsDigit(c))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public static bool HasDigits(string s)
+        {
+            foreach (char c in s)
+            {
+                if (char.IsDigit(c))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public static bool IsSymbols(string s)
+        {
+            foreach (char c in s)
+            {
+                if (char.IsLetterOrDigit(c))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public static bool HasSymbols(string s)
+        {
+            foreach (char c in s)
+            {
+                if (!char.IsLetterOrDigit(c))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }
