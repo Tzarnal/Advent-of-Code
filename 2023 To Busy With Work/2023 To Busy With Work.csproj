@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -11,6 +11,16 @@
   <Import Project="..\Sharing is Caring\Sharing is Caring.projitems" Label="Shared" />
 
   <ItemGroup>
+        <Content Include="Day 03\inputTest.txt"><CopyToOutputDirectory>Always</CopyToOutputDirectory></Content>
+        <Content Include="Day 03\input.txt"><CopyToOutputDirectory>Always</CopyToOutputDirectory></Content>
+    <Compile Remove="Day 03\**" />
+    <EmbeddedResource Remove="Day 03\**" />
+    <None Remove="Day 03\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+        <Content Include="Day 02\inputTest.txt"><CopyToOutputDirectory>Always</CopyToOutputDirectory></Content>
+        <Content Include="Day 02\input.txt"><CopyToOutputDirectory>Always</CopyToOutputDirectory></Content>
     <PackageReference Include="RegExtract" Version="2.3.0" />
     <PackageReference Include="Serilog" Version="4.1.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />

@@ -25,6 +25,12 @@ namespace Templater
             var rootDir = Directory.GetCurrentDirectory().Split("Templater")[0];
             var templateDir = rootDir + Templatepath;
 
+            if(day.Length == 1)
+            {
+                day = "0" + day;
+            }
+
+
             var sessionId = "";
             if (File.Exists("session.txt"))
             {
@@ -65,6 +71,7 @@ namespace Templater
                 return;
             }
 
+            
             var projectDir = projectDirs.First();
 
             var targetDir = projectDir + $"\\Day {day}\\";
@@ -216,6 +223,11 @@ namespace Templater
 
         private static string GetInput(string Session, string Day, string Year)
         {
+            if (Day[0] == '0' && Day.Length > 1)
+            {
+                Day = Day[1].ToString();
+            }
+
             var url = $"https://adventofcode.com/{Year}/day/{Day}/input";
             var wc = new WebClient();
 
@@ -233,6 +245,11 @@ namespace Templater
 
         private static string GetProblemName(string Session, string Day, string Year)
         {
+            if (Day[0] == '0' && Day.Length > 1)
+            {
+                Day = Day[1].ToString();
+            }
+
             var url = $"https://adventofcode.com/{Year}/day/{Day}";
             var wc = new WebClient();
 
