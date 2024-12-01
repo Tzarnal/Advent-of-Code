@@ -9,13 +9,13 @@ Advent of Code 2020
 
  Templater is a CLI tool to set up a the solutions for a given day from the Day 00 template, renaming various things and downloading the input for a given day.
 
-[2024]  2*
-[2023]  6*
-[2022] 32*
-[2021] 30*
-[2020] 50*
-[2019]    
-[2018]    
-[2017]    
-[2016]  8*
-[2015] 30*
+* 2024 -  2 Stars
+* 2023 -  6 Stars
+* 2022 - 32 Stars
+* 2021 - 30 Stars
+* 2020 - 50 Stars ( Complete )
+* 2019 - 
+* 2018 - 
+* 2017 - 
+* 2016 -  8 Stars
+* 2015 - 30 Stars
