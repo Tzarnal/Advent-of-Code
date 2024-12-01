@@ -45,6 +45,30 @@ namespace Advent
             return ints;
         }
 
+        public static List<List<int>> ReadAllIntsPerLine(string filePath)
+        {
+            var intsPerLine = new List<List<int>>();
+
+            var inputFile = File.ReadAllLines(filePath);
+            foreach (var line in inputFile)
+            {
+                var ints = new List<int>();
+                var intsResult = Regex.Matches(line, @"(-?\d+)");
+                foreach (Match result in intsResult)
+                {
+                    int i = 0;
+                    if (int.TryParse((string)result.Value, out i))
+                    {
+                        ints.Add(i);
+                    }
+                }
+
+                intsPerLine.Add(ints);
+            }
+
+            return intsPerLine;
+        }
+
         public static List<int> ReadAllIntsFile(string filePath)
         {
             var file = File.ReadAllText(filePath);
