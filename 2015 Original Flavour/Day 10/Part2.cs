@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
@@ -8,11 +8,11 @@ using RegExtract;
 
 namespace Day_10
 {
-    //Problem URL
+    //https://adventofcode.com/2015/day/10#part2
     public class Part2 : IAdventProblem
     {
         private string Dayname => Helpers.GetDayFromNamespace(this);
-        public string ProblemName { get => $"Day {Dayname}: Something Something. Part Two."; }
+        public string ProblemName { get => $"Day {Dayname}: Elves Look, Elves Say. Part Two."; }
 
         public void Run()
         {

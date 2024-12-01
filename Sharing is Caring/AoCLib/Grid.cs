@@ -21,7 +21,8 @@ namespace Advent
         public static readonly (int x, int y) UpLeft = (-1, -1);
 
         public List<(int x, int y)> AdjacentDirections =
-        new List<(int x, int y)> {
+        new()
+        {
             Right,
             Left,
             Down,
