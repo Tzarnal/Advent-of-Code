@@ -1,4 +1,7 @@
-﻿namespace Advent.AoCLib
+﻿using Serilog;
+using System;
+
+namespace Advent.AoCLib
 {
     public class IntVector2
     {
@@ -82,7 +85,7 @@
         }
 
         public IntVector2 Copy => new(X, Y);
-                
+
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(this, obj))
@@ -95,7 +98,11 @@
                 return false;
             }
 
-            var vector = obj as IntVector2;
+            if (obj is not IntVector2 vector)
+            {
+                return false;
+            }
+
             return X == vector.X && Y == vector.Y;
         }
 

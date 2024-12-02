@@ -150,7 +150,12 @@ namespace Advent
         {
             var nameSpace = o.GetType().Namespace;
 
-            var day = nameSpace.Split('_')[1].Trim();
+            var day = nameSpace?.Split('_')[1].Trim();
+
+            if (day == null)
+            {
+                return "uknown day";
+            }
 
             return day;
         }
